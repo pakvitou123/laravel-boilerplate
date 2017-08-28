@@ -2,6 +2,12 @@
 
 namespace App\Models\Access\User;
 
+use App\Models\Answer;
+use App\Models\Employee\Traits\Relationship\EmployeeTrait;
+use App\Models\Group;
+use App\Models\Notification;
+use App\Models\Question;
+use App\Models\Request;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Access\User\Traits\UserAccess;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -36,7 +42,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['first_name', 'last_name', 'email', 'password', 'status', 'confirmation_code', 'confirmed'];
+    protected $fillable = ['first_name', 'last_name','img', 'email', 'password', 'status', 'confirmation_code', 'confirmed'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -64,4 +70,21 @@ class User extends Authenticatable
         parent::__construct($attributes);
         $this->table = config('access.users_table');
     }
+
+    public function groups(){
+        return $this->hasMany(Group::class);
+    }
+    public function questions(){
+        return $this->hasMany(Question::class);
+    }
+    public function requests(){
+        return $this->hasMany(Request::class);
+    }
+    public function notifications(){
+        return $this->hasMany(Notification::class);
+    }
+    public function answers(){
+        return $this->hasMany(Answer::class);
+    }
+
 }

@@ -14,7 +14,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend/layouts_new/home_page/index');
     }
 
     /**

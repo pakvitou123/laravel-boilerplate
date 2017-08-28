@@ -1,0 +1,94 @@
+.navbar-inverse {
+    background: #4d545d;
+    color: #4d545d;
+    padding: 11.5px 0;
+    border-top: 2px solid #00b1b3;
+    position: relative;
+    z-index: 200;
+    margin-bottom: 0px;
+}
+
+/* style glyph */
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+}
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+    color: #00b1b3!important;;
+
+}
+
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #d3e0e9;
+    margin-bottom: 0px;
+    padding: 10px;
+}
+/*dropown the ul */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;
+}
+
+
+.sidebar2,.main-content{
+    height:100%;
+}
+.sidebar2 {
+    background-color: #1a1f27;
+    box-shadow: 2px 2px 5px #262a35;
+    height: 100%;
+}
+.logo {
+    padding-top: 20px;
+    color:#afb1b5;
+}
+
+.btn.Add-friend{
+    background-color:#F17153;
+    border: 1px solid #50e6df;
+    color:#eee;
+}
+.btn.Add-friend:hover,.btn.Add-friend:active,
+.btn.Add-friend:active:focus,.btn.Add-friend:active:hover,
+.btn.Add-friend:visited,.btn.Add-friend:focus
+{
+    background-color:#F17153;
+    border: 0.5px solid transparent;
+    color:white;
+    outline:none;
+    font-weight:600;
+}
+.list {
+    color: #eee;
+    list-style: none;
+    padding-left: 0px;
+}
+
+li>i {
+    margin-right:15px;
+}
+.list> li {
+    padding: 15px 0px 15px 40px;
+    font-size: 16px;
+    font-weight:lighter;
+}
+.list>li:hover {
+    color: white;
+    transition: padding-left 0.2s linear;
+    padding-left: 60px;
+
+}
+.main-content{
+    width:100%;
+    padding-top:10px ;
+}
+.list-group-item {
+    border-left:0px solid black;
+    border-right:0px solid black;
+}
