@@ -124,11 +124,11 @@ return [
                     'associated_roles' => 'Associated Roles',
                     'dependencies'     => 'Dependencies',
                     'display_name'     => 'Display Name',
-                    'group'            => 'Group',
-                    'group_sort'       => 'Group Sort',
+                    'group'            => 'group',
+                    'group_sort'       => 'group Sort',
 
                     'groups' => [
-                        'name' => 'Group Name',
+                        'name' => 'group Name',
                     ],
 
                     'name'       => 'Name',
@@ -171,7 +171,16 @@ return [
             'new_password'              => 'New Password',
             'new_password_confirmation' => 'New Password Confirmation',
             'old_password'              => 'Old Password',
+
+            'group_name'                => 'Name',
+            'group_header'              => 'Creating Group',
+            'decription'                => 'Decription',
+            'group_decription'          => 'Decription here',
+            'privacy'                   => 'Privacy',
+            'create'                   => 'Create',
         ],
     ],
+
+
 
 ];

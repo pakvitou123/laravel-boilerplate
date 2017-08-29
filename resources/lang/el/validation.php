@@ -124,11 +124,11 @@ return [
                     'associated_roles' => 'Associated Roles',
                     'dependencies'     => 'Dependencies',
                     'display_name'     => 'Display Name',
-                    'group'            => 'Group',
-                    'group_sort'       => 'Group Sort',
+                    'group'            => 'group',
+                    'group_sort'       => 'group Sort',
 
                     'groups' => [
-                        'name' => 'Group Name',
+                        'name' => 'group Name',
                     ],
 
                     'name'   => 'Name',

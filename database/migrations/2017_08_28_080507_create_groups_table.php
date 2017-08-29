@@ -17,6 +17,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->string('name');
+            $table->text('decription');
             $table->boolean('privacy');
             $table->integer('member_nb');
 

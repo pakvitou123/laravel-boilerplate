@@ -8,7 +8,7 @@
                     </button>
                 </a>
             @else
-                <a href="#">
+                <a href="{{route('group')}}">
                     <button type="button" class="btn btn-default Add-friend">
                         <i class="fa fa-rocket" aria-hidden="true"></i> Create Group
                     </button>
