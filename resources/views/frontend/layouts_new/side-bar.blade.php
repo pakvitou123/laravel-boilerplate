@@ -1,9 +1,21 @@
 <div class="col-md-3 sidebar2 ">
     <div class="logo text-center">
         <div>
-            <button type="button" class="btn btn-default Add-friend">
-                <i class="fa fa-rocket" aria-hidden="true"></i> Create Account
-            </button>
+            @if(Auth::guest())
+                <a href="#">
+                    <button type="button" class="btn btn-default Add-friend">
+                        <i class="fa fa-rocket" aria-hidden="true"></i> Create Account
+                    </button>
+                </a>
+            @else
+                <a href="#">
+                    <button type="button" class="btn btn-default Add-friend">
+                        <i class="fa fa-rocket" aria-hidden="true"></i> Create Group
+                    </button>
+                </a>
+
+            @endif
+
         </div>
     </div>
     <br>
