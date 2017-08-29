@@ -14,7 +14,6 @@ class CreateUserGroupsTable extends Migration
     public function up()
     {
         Schema::create('user__groups', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->integer('id_group')->unsigned();
             $table->boolean('priority');
