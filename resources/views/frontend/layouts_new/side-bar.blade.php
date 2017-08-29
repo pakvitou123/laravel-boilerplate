@@ -24,7 +24,11 @@
             <span style="padding-left: 40px">CHOOSE A FILTER</span>
             <li><i class="fa fa-globe" aria-hidden="true"></i>ALL Thread</li>
             <li><i class="fa fa-thumbs-up" aria-hidden="true"></i>Popular This week</li>
-            <li><i class="fa fa-firefox" aria-hidden="true"></i>Popular This week</li>
+            @if(!Auth::guest())
+                <li><i class="fa fa-users" aria-hidden="true"></i>My Group</li>
+                <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i>My Question</li>
+                @endif
+
             <li><i class="fa fa-hand-o-right" aria-hidden="true"></i>Solved</li>
             <li><i class="fa fa-certificate" aria-hidden="true"></i>Unsolved</li>
             <li><i class="fa fa-users" aria-hidden="true"></i></i>No Replies Yet</li>
