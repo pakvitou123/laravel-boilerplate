@@ -41,7 +41,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('frontend.auth.register');
+        return view('frontend.auth_new.register');
     }
 
     /**
@@ -59,7 +59,7 @@ class RegisterController extends Controller
         $newUser->confirmation_code = md5(uniqid(mt_rand(), true));
         $newUser->confirmed = true;
         $newUser->save();
-        return redirect()->route('frontend.index')->withFlashSuccess('User have been created successfully.');
+        return redirect('/')->withFlashSuccess('User have been created successfully.');
 //        if (config('access.users.confirm_email') || config('access.users.requires_approval')) {
 //            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password'));
 //            event(new UserRegistered($user));
