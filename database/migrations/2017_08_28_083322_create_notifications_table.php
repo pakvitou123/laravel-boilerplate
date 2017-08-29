@@ -14,10 +14,10 @@ class CreateNotificationsTable extends Migration
     public function up()
     {
         Schema::create('notifications', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user_active');
-            $table->integer('id_user_passive');
-            $table->integer('id_group');
+            $table->increments('id')->unsigned();
+            $table->integer('id_user_active')->unsigned();
+            $table->integer('id_user_passive')->unsigned();
+            $table->integer('id_group')->unsigned();
             $table->enum('action',['invite', 'request', 'delete', 'accept', 'comfirm']);
             $table->boolean('seeing');
 

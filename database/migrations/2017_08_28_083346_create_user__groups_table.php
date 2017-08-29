@@ -14,10 +14,11 @@ class CreateUserGroupsTable extends Migration
     public function up()
     {
         Schema::create('user__groups', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user');
-            $table->integer('id_group');
+            $table->increments('id')->unsigned();
+            $table->integer('id_user')->unsigned();
+            $table->integer('id_group')->unsigned();
             $table->boolean('priority');
+
 
             $table->foreign('id_user')
                 ->references('id')
@@ -25,6 +26,7 @@ class CreateUserGroupsTable extends Migration
             $table->foreign('id_group')
                 ->references('id')
                 ->on('groups');
+
             $table->primary(['id_user', 'id_group']);
             $table->timestamps();
         });

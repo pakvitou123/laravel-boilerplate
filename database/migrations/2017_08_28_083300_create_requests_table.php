@@ -14,10 +14,10 @@ class CreateRequestsTable extends Migration
     public function up()
     {
         Schema::create('requests', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('id_user_requester');
-            $table->integer('id_user_requested');
-            $table->integer('group_id');
+            $table->increments('id')->unsigned();
+            $table->integer('id_user_requester')->unsigned();
+            $table->integer('id_user_requested')->unsigned();
+            $table->integer('group_id')->unsigned();
 
             $table->foreign('id_user_requester')
                 ->references('id')
