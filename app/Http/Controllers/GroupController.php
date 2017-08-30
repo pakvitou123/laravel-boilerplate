@@ -14,6 +14,9 @@ class GroupController extends Controller
      */
     public function index()
     {
+        if (Auth::check() == false) {
+            redirect('/');
+        }
         return view('frontend.layouts_new.group.content');
     }
 

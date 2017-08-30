@@ -2,7 +2,7 @@
     <div class="logo text-center">
         <div>
             @if(Auth::guest())
-                <a href="#">
+                <a href="{{route('frontend.auth.register')}}">
                     <button type="button" class="btn btn-default Add-friend">
                         <i class="fa fa-rocket" aria-hidden="true"></i> Create Account
                     </button>

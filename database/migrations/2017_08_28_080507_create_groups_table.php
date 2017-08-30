@@ -17,7 +17,7 @@ class CreateGroupsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('id_user')->unsigned();
             $table->string('name');
-            $table->string('img')->default('yuyu.jpg');
+            $table->string('img')->default('group.jpg');
             $table->text('decription');
             $table->enum('privacy',['private', 'public']);
             $table->integer('member_nb');
