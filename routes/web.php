@@ -39,9 +39,3 @@ Route::get('group', 'GroupController@index')->name('group');
 Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
 
 
-
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
