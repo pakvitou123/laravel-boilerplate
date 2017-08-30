@@ -177,7 +177,11 @@ return [
             'decription'                => 'Decription',
             'group_decription'          => 'Decription here',
             'privacy'                   => 'Privacy',
-            'create'                   => 'Create',
+            'create'                    => 'Create',
+
+            'title'                     => 'Title',
+            'question_header'                     => 'Asking Question',
+            'public_question'                     => 'Public Question',
         ],
     ],
 

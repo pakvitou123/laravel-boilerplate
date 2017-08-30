@@ -35,7 +35,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     includeRouteFiles(__DIR__.'/Backend/');
 });
 
-Route::get('group', 'GroupController@index')->name('group');
+Route::get('group', 'GroupController@create')->name('group');
 Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
+Route::get('mygroup', 'GroupController@show')->name('mygroup');
+Route::get('indexgroup/{id}', 'GroupController@index')->name('index');
 
+
+Route::get('question', 'QuestionController@create')->name('question');
+Route::post('QuestionCreate', 'QuestionController@store')->name('QuestionCreate');
 

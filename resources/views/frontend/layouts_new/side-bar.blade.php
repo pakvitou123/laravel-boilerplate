@@ -10,7 +10,13 @@
             @else
                 <a href="{{route('group')}}">
                     <button type="button" class="btn btn-default Add-friend">
-                        <i class="fa fa-rocket" aria-hidden="true"></i> Create Group
+                        <i class="fa fa-rocket" aria-hidden="true"></i> Create New Group
+                    </button>
+                </a>
+
+                <a href="{{route('question')}}">
+                    <button type="button" class="btn btn-default Add-friend">
+                        <i class="fa fa-rocket" aria-hidden="true"></i> Ask Question
                     </button>
                 </a>
 
@@ -25,7 +31,7 @@
             <li><i class="fa fa-globe" aria-hidden="true"></i>ALL Thread</li>
             <li><i class="fa fa-thumbs-up" aria-hidden="true"></i>Popular This week</li>
             @if(!Auth::guest())
-                <li><i class="fa fa-users" aria-hidden="true"></i>My Group</li>
+                <li> <a href="{{route('mygroup')}}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp My Group</a></li>
                 <li><i class="fa fa-lightbulb-o" aria-hidden="true"></i>My Question</li>
                 @endif
 

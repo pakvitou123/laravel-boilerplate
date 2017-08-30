@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Auth\Auth;
 use App\Models\Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GroupController extends Controller
 {
@@ -13,12 +14,14 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
+        $group = Group::find($id);
 //        if (Auth::check() == false) {
 //            redirect('/');
 //        }
-        return view('frontend.layouts_new.group.content');
+//        dd($group->name);
+        return view('frontend.layouts_new.group.content', compact('group'));
     }
 
     /**
@@ -28,7 +31,7 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.layouts_new.group.create');
     }
 
     /**
@@ -45,9 +48,9 @@ class GroupController extends Controller
         $group->name = $request->title;
         $group->decription = $request->decription;
         $group->privacy = $request->privacy;
-        $group->member_nb = '0';
+        $group->member_nb = '1';
         $group->save();
-        return redirect('/');
+        return redirect('/mygroup');
     }
 
     /**
@@ -58,7 +61,8 @@ class GroupController extends Controller
      */
     public function show(Group $group)
     {
-        //
+        $results = DB::table('groups')->where('id_user', \auth()->id())->get();
+        return view('frontend.layouts_new.group.mygroup', compact('results'));
     }
 
     /**

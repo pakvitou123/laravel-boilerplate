@@ -24,7 +24,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('frontend.layouts_new.question.create');
     }
 
     /**
