@@ -36,7 +36,12 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 });
 
 Route::get('group', 'GroupController@index')->name('group');
+Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
 
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

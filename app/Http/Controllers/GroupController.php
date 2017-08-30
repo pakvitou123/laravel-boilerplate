@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Auth\Auth;
 use App\Models\Group;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,9 @@ class GroupController extends Controller
      */
     public function index()
     {
-        if (Auth::check() == false) {
-            redirect('/');
-        }
+//        if (Auth::check() == false) {
+//            redirect('/');
+//        }
         return view('frontend.layouts_new.group.content');
     }
 
