@@ -35,7 +35,15 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $group = new Group();
+        $group->id_user = auth()->user()->id;
+        $group->name = $request->title;
+        $group->decription = $request->decription;
+        $group->privacy = $request->privacy;
+        $group->member_nb = '0';
+        $group->save();
+        return redirect('/');
     }
 
     /**
