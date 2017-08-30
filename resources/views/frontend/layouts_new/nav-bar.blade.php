@@ -11,10 +11,11 @@
         <div class="collapse navbar-collapse" id="myNavbar">
             <div class="col-md-6 hidden-xs">
                 <form class="navbar-form">
+                    {{csrf_field()}}
                     <div class="input-group" style="width: 400px">
-                        <input type="text" class="form-control" placeholder="Search for...">
+                        <input type="text" class="form-control" placeholder="Search for..." name="text">
                         <span class="input-group-btn">
-                            <button class="btn btn-secondary" type="button">Search</button>
+                            <a href="{{route('admin.search.index')}}"><button class="btn btn-secondary" type="button">Search</button></a>
                         </span>
                     </div>
                 </form>

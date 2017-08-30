@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Access\User\User;
 
 /**
  * Class FrontendController.
@@ -14,7 +15,8 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend/layouts_new/home_page/index');
+        $results = User::all();
+        return view('frontend/layouts_new/home_page/index', compact('results'));
     }
 
     /**
@@ -23,5 +25,10 @@ class FrontendController extends Controller
     public function macros()
     {
         return view('frontend.macros');
+    }
+    public function demo(){
+//        $results = User::all();
+        //dd($results);
+        return view('frontend.layouts_new.home_page.demo',compact('results'));
     }
 }

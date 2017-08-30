@@ -36,6 +36,7 @@ class User extends Authenticatable
      * @var string
      */
     protected $table;
+//    protected $id='id';
 
     /**
      * The attributes that are mass assignable.

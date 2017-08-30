@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\Search;
 
+use App\Models\Access\User\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -26,8 +27,8 @@ class SearchController extends Controller
         /**
          * Process Search Results Here.
          */
-        $results = null;
-
+        $results = User::all();
+//        $demo = User::all();
         return view('backend.search.index')
             ->withSearchTerm($request->get('q'))
             ->withResults($results);
