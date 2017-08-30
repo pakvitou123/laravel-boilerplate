@@ -1,6 +1,6 @@
 @extends('frontend.layouts_new.app')
 
-@section('content')
+
 @section('content')
     <div class="col-md-9">
         <div class="row">

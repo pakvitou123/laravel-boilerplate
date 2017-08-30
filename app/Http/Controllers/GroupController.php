@@ -6,6 +6,7 @@ use App\Helpers\Auth\Auth;
 use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Facades\Image;
 
 class GroupController extends Controller
 {
@@ -14,6 +15,32 @@ class GroupController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function showedit(){
+//        $user = User:: find($id);
+        return view('frontend.layouts_new.profile.content');
+    }
+     public function editprofile(Request $request){
+
+         if($request->hasFile('file')){
+             $file = $request->file('file');
+             if($file->getClientOriginalExtension() == "jpg" || $file->getClientOriginalExtension() == "png"){
+                 $filename = time().'.'.$file->getClientOriginalExtension();
+                Image::make($file)->resize(300, 300)->save(public_path('/img/profile/'.$filename));
+
+                 $user = access()->user();
+                 if($user->img != "yuyu.jpg"){
+                     unlink(public_path('/img/profile/'.$user->img)); // delete old file
+                 }
+                 $user->img = $filename;
+                 $user->first_name = $request->first_name;
+                 $user->last_name = $request->last_name;
+                 $user->save();
+             }
+         }
+         return redirect('/');
+     }
+
     public function index($id)
     {
         $group = Group::find($id);

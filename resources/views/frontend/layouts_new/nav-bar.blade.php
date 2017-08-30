@@ -41,7 +41,7 @@
 
                                 </li>
                                 <li>
-                                    <a href="#" class="btn btn-default btn-default_2 pull-left" data-toggle="modal" data-target="#applyModal_2">
+                                    <a href="{{route('profile')}}" >
                                         <h4>ផ្លាស់ប្ដូររូបភាព</h4>
                                     </a>
                                 </li>

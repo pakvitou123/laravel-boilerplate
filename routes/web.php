@@ -35,6 +35,9 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
     includeRouteFiles(__DIR__.'/Backend/');
 });
 
+Route::get('profile', 'GroupController@showedit')->name('profile');
+Route::post('profileupdate', 'GroupController@editprofile')->name('profileupdate');
+
 Route::get('group', 'GroupController@create')->name('group');
 Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
 Route::get('mygroup', 'GroupController@show')->name('mygroup');

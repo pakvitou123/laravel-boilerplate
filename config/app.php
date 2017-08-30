@@ -174,6 +174,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -261,6 +262,7 @@ return [
         'Gravatar'    => Creativeorange\Gravatar\Facades\Gravatar::class,
         'Html'        => Collective\Html\HtmlFacade::class,
         'Socialite'   => Laravel\Socialite\Facades\Socialite::class,
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 
