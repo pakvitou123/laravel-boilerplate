@@ -42,6 +42,8 @@ Route::get('group', 'GroupController@create')->name('group');
 Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
 Route::get('mygroup', 'GroupController@show')->name('mygroup');
 Route::get('indexgroup/{id}', 'GroupController@index')->name('index');
+Route::get('showquestion/{id_group}', 'GroupController@showquestion')->name('showquestion');
+Route::post('questioncreate/{id_group}','GroupController@createquestion')->name('createquestion');
 //Route::post('GroupQuestion/{')
 
 

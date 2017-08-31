@@ -13,7 +13,7 @@
     <div class="col-md-3 sidebar2 ">
         <div class="logo text-center">
             <div>
-                <a href="{{route('frontend.auth.register')}}">
+                <a href="{{route('showquestion',[$group->id])}}">
                     <button type="button" class="btn btn-default Add-friend">
                         <i class="fa fa-rocket" aria-hidden="true"></i> Ask Question
                     </button>

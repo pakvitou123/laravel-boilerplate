@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Auth\Auth;
 use App\Models\Group;
+use App\Models\Question;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -124,5 +125,23 @@ class GroupController extends Controller
     public function destroy(Group $group)
     {
         //
+    }
+
+    public function showquestion($id_group){
+
+        return view('frontend.layouts_new.group.createquestion', compact('id_group'));
+    }
+    public function createquestion(Request $request , $id_group){
+        $question = new Question();
+        $question->id_user = auth()->id();
+        $question->id_group = $id_group;
+        $question->title = $request->title;
+        $question->description = $request->description;
+        $question->save();
+
+        //send group data to view
+        $group = Group::find($id_group);
+
+        return view('frontend.layouts_new.group.content', compact('group'));
     }
 }
