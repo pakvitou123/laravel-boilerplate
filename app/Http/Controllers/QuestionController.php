@@ -70,9 +70,10 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function edit(Question $question)
+    public function edit($id)
     {
-        //
+        $question = Question::find($id);
+        return view('frontend.layouts_new.question.edit', compact('question'));
     }
 
     /**
@@ -82,9 +83,13 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(Request $request, $id)
     {
-        //
+        $question = Question::find($id);
+        $question->title = $request->title;
+        $question->description = $request->description;
+        $question->save();
+        return redirect('myquestion');
     }
 
     /**
@@ -93,8 +98,10 @@ class QuestionController extends Controller
      * @param  \App\Models\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy($id)
     {
-        //
+        $question = Question::find($id);
+        $question->delete();
+        return redirect('myquestion');
     }
 }

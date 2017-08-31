@@ -20,27 +20,22 @@
                                                     <div class="col-xs-12 col-md-1">
                                                         <img src="{{asset('/img/profile/'.Auth::user()->img)}}" alt="Todd Shelton" class="img-responsive img-circle" style="width: 50px;height: 50px">
                                                     </div>
-                                                    <div class="col-xs-12 col-md-9">
+                                                    <div class="col-xs-12 col-md-7">
                                                         <a href="{{route('indexquestion',[$question->id])}}" style="color: black"><h4>{{$question->title}}</h4></a>
                                                     </div>
                                                     <div class="col-xs-12 col-md-2">
                                                         <p>09 answer</p>
+
+
+
+                                                    </div>
+                                                    <div class="col-xs-12 col-md-2">
+                                                        <a href="{{route('editquestion', [$question->id])}}"><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+                                                        <a href="{{route('deletequestion', [$question->id])}}"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </li>
                                             @endforeach
-                                                {{--<li class="list-group-item">--}}
-                                                    {{--<div class="col-xs-12 col-md-1">--}}
-                                                        {{--<img src="{{asset('/img/profile/'.Auth::user()->img)}}" alt="Todd Shelton" class="img-responsive img-circle" style="width: 50px;height: 50px">--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="col-xs-12 col-md-9">--}}
-                                                        {{--<a href="{{route('indexquestion')}}" style="color: black"><h4>Hello</h4></a>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="col-xs-12 col-md-2">--}}
-                                                        {{--<p>09 answer</p>--}}
-                                                    {{--</div>--}}
-                                                    {{--<div class="clearfix"></div>--}}
-                                                {{--</li>--}}
                                         @else
                                             <h5>No have group</h5>
                                         @endif

@@ -163,7 +163,7 @@ return [
             'email'                     => 'E-mail Address',
             'first_name'                => 'First Name',
             'last_name'                 => 'Last Name',
-            'name'                        => 'Full Name',
+            'name'                      => 'Full Name',
             'password'                  => 'Password',
             'password_confirmation'     => 'Password Confirmation',
             'phone' => 'Phone',
@@ -180,8 +180,11 @@ return [
             'create'                    => 'Create',
 
             'title'                     => 'Title',
-            'question_header'                     => 'Asking Question',
-            'public_question'                     => 'Public Question',
+            'question_header'           => 'Asking Question',
+            'public_question'           => 'Public Question',
+
+            'edit_header'               => 'Editing Question',
+            'save'                      => 'Save',
         ],
     ],
 
