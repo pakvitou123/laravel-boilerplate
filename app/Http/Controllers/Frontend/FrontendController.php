@@ -26,9 +26,4 @@ class FrontendController extends Controller
     {
         return view('frontend.macros');
     }
-    public function demo(){
-//        $results = User::all();
-        //dd($results);
-        return view('frontend.layouts_new.home_page.demo',compact('results'));
-    }
 }

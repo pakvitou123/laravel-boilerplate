@@ -10,15 +10,18 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <div class="col-md-6 hidden-xs">
-                <form class="navbar-form">
-                    {{csrf_field()}}
-                    <div class="input-group" style="width: 400px">
-                        <input type="text" class="form-control" placeholder="Search for..." name="text">
-                        <span class="input-group-btn">
-                            <a href="{{route('admin.search.index')}}"><button class="btn btn-secondary" type="button">Search</button></a>
-                        </span>
+                {!! Form::open(['url'=>'/search','class'=>'navbar-form']) !!}
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        {{Form::text('text',null,array('class'=>'form-control','placeholder'=>'Type Words','required'))}}
                     </div>
-                </form>
+                </div>
+                <div class="col-sm-2">
+                    <div class="btn-group">
+                        {{Form::submit('Search',['class'=>'btn btn-default'])}}
+                    </div>
+                </div>
+                {!! Form::close() !!}
             </div>
             <div class="col-md-3 col-md-offset-1">
                 <ul class="nav navbar-nav navbar-right">

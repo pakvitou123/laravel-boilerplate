@@ -55,3 +55,4 @@ Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion')
 Route::post('updatequestion/{id}', 'QuestionController@update')->name('updatequestion');
 Route::get('deletequestion/{id}', 'QuestionController@destroy')->name('deletequestion');
 
+Route::any('search','searchController@search')->name('search');
