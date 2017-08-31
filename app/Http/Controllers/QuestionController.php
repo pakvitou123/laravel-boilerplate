@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Access\User\User;
 use App\Models\Question;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
@@ -13,9 +15,16 @@ class QuestionController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function index($id)
     {
-        //
+        $question = Question::find($id);
+        $user = User::find($question->id_user);
+        return view('frontend.layouts_new.question.index', compact('question', 'user'));
+    }
+
+    public function myquestion(){
+        $questions = DB::table('questions')->where('id_user', \auth()->id())->get();
+        return view('frontend.layouts_new.question.myquestion', compact('questions'));
     }
 
     /**
@@ -36,7 +45,12 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = new Question();
+        $question->id_user = auth()->id();
+        $question->title = $request->title;
+        $question->description = $request->description;
+        $question->save();
+        return redirect('myquestion');
     }
 
     /**

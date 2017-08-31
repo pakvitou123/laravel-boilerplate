@@ -29,7 +29,7 @@
                                         {{ Form::label('decription', trans('validation.attributes.frontend.decription'),
                                         ['class' => 'col-md-4 control-label']) }}
                                         <div class="col-md-6">
-                                            {{ Form::textarea('decription', null,
+                                            {{ Form::textarea('description', null,
                                             ['class' => 'form-control', 'maxlength' => '191', 'required' => 'required', 'placeholder' => trans('validation.attributes.frontend.group_decription')]) }}
                                         </div><!--col-md-6-->
                                     </div><!--form-group-->
