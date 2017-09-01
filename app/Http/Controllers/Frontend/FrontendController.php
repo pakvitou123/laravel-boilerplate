@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Access\User\User;
+use App\Models\Group;
+use App\Models\Question;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class FrontendController.
@@ -16,7 +19,9 @@ class FrontendController extends Controller
     public function index()
     {
         $results = User::all();
-        return view('frontend/layouts_new/home_page/index', compact('results'));
+        $result_question =Question::all();
+        $result_group =Group::all();
+        return view('frontend/layouts_new/home_page/index', compact('results','result_question','result_group'));
     }
 
     /**

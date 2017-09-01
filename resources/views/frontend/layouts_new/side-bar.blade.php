@@ -32,7 +32,7 @@
             <li><i class="fa fa-thumbs-up" aria-hidden="true"></i>Popular This week</li>
             @if(!Auth::guest())
                 <li> <a href="{{route('mygroup')}}"><i class="fa fa-users" aria-hidden="true"></i> &nbsp My Group</a></li>
-                <li><a href="{{route('myquestion')}}"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> &nbsp; &nbsp; My Question</a> </li>
+                <li><a href="{{route('myquestion')}}"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> &nbsp; &nbsp;My Question</a> </li>
                 @endif
 
             <li><i class="fa fa-hand-o-right" aria-hidden="true"></i>Solved</li>
