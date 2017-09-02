@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserGroupsTable extends Migration
+class CreateVoteQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,22 +13,21 @@ class CreateUserGroupsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user__groups', function (Blueprint $table) {
+        Schema::create('vote_questions', function (Blueprint $table) {
+            $table->integer('id')->unsigned();
             $table->integer('id_user')->unsigned();
-            $table->integer('id_group')->unsigned();
-            $table->boolean('priority');
-
+            $table->boolean('vote');
 
             $table->foreign('id_user')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
-            $table->foreign('id_group')
+            $table->foreign('id')
                 ->references('id')
-                ->on('groups')
+                ->on('questions')
                 ->onDelete('cascade');
 
-            $table->primary(['id_user', 'id_group']);
+            $table->primary(['id', 'id_user']);
             $table->timestamps();
         });
     }
@@ -40,6 +39,6 @@ class CreateUserGroupsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user__groups');
+        Schema::dropIfExists('vote_questions');
     }
 }

@@ -54,5 +54,7 @@ Route::get('indexquestion/{id}','QuestionController@index')->name('indexquestion
 Route::get('editquestion/{id}', 'QuestionController@edit')->name('editquestion');
 Route::post('updatequestion/{id}', 'QuestionController@update')->name('updatequestion');
 Route::get('deletequestion/{id}', 'QuestionController@destroy')->name('deletequestion');
+Route::get('like/{id}', 'QuestionController@like')->name('likequestion');
+Route::get('dislike/{id}', 'QuestionController@dislike')->name('dislikequestion');
 
 Route::any('search','searchController@search')->name('search');

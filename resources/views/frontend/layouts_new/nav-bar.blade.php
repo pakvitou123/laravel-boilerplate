@@ -23,8 +23,23 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <div class="col-md-3 col-md-offset-1">
+            <div class="col-md-7 col-md-offset-1">
                 <ul class="nav navbar-nav navbar-right">
+
+                    <li>
+                        <a href="{{route('group')}}">
+                            <button type="button" class="btn btn-default Add-friend">
+                                <i class="fa fa-rocket" aria-hidden="true"></i> Create New Group
+                            </button>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('question')}}">
+                            <button type="button" class="btn btn-default Add-friend">
+                                <i class="fa fa-rocket" aria-hidden="true"></i> Ask Question
+                            </button>
+                        </a>
+                    </li>
                     @if(Auth::guest())
                         <li><a href="{{route('frontend.auth.register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="{{route('frontend.auth.login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

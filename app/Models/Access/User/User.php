@@ -8,6 +8,7 @@ use App\Models\Group;
 use App\Models\Notification;
 use App\Models\Question;
 use App\Models\Request;
+use App\VoteQuestion;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Access\User\Traits\UserAccess;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -86,6 +87,9 @@ class User extends Authenticatable
     }
     public function answers(){
         return $this->hasMany(Answer::class);
+    }
+    public function vote_questions(){
+        return $this->hasMany(VoteQuestion::class);
     }
 
 }

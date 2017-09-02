@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Access\User\User;
 use App\Models\Question;
+use App\VoteQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,7 +20,17 @@ class QuestionController extends Controller
     {
         $question = Question::find($id);
         $user = User::find($question->id_user);
-        return view('frontend.layouts_new.question.index', compact('question', 'user'));
+        $vote = VoteQuestion::whereRaw('id = ? and id_user = ?',[$id, auth()->id()])->get();
+        if(count($vote->getIterator()) > 0){
+            $votequestion = $vote->getIterator()[0];
+            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion'));
+        } else{
+            $votequestion = null;
+            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion'));
+        }
+
+
+
     }
 
     public function myquestion(){
@@ -103,5 +114,115 @@ class QuestionController extends Controller
         $question = Question::find($id);
         $question->delete();
         return redirect('myquestion');
+    }
+
+    public function like($id)
+    {
+//        dd(auth()->id());
+        $vote = VoteQuestion::whereRaw('id = ? and id_user = ?',[$id, auth()->id()])->get();
+
+
+
+//        $question = VoteQuestion::find($id)->unionAll();
+//        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
+
+        if(count($vote->getIterator()) > 0){
+
+            if($vote->getIterator()[0]->vote == 0){
+
+                $vote->getIterator()[0]->vote = 1;
+                $vote->getIterator()[0]->save();
+                $votequestion = $vote->getIterator()[0];
+
+                $question = Question::find($id);
+                $question->like = $question->like + 1;
+                $question->dislike = $question->dislike - 1;
+                $question->save();
+
+                $user = User::find($question->id_user);
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            } else{
+                $vote->getIterator()[0]->delete();
+                $votequestion = null;
+                $question = Question::find($id);
+                $question->like = $question->like - 1;
+                $question->save();
+
+                $user = User::find($question->id_user);
+
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            }
+        } else{
+
+            $vote = new VoteQuestion();
+            $vote->id = $id;
+            $vote->id_user = auth()->id();
+            $vote->vote = 1;
+            $vote->save();
+            $votequestion = $vote;
+
+            $question = Question::find($id);
+            $question->like = $question->like + 1;
+            $question->save();
+
+            $user = User::find($question->id_user);
+            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+        }
+
+    }
+
+    public function dislike($id)
+    {
+//        dd(auth()->id());
+        $vote = VoteQuestion::whereRaw('id = ? and id_user = ?',[$id, auth()->id()])->get();
+
+
+//        $question = VoteQuestion::find($id)->unionAll();
+//        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
+
+        if(count($vote->getIterator()) > 0){
+            if($vote->getIterator()[0]->vote == 1){
+
+                $vote->getIterator()[0]->vote = 0;
+                $vote->getIterator()[0]->save();
+                $votequestion = $vote->getIterator()[0];
+
+                $question = Question::find($id);
+                $question->like = $question->like - 1;
+                $question->dislike = $question->dislike + 1;
+                $question->save();
+
+                $user = User::find($question->id_user);
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            } else{
+                $vote->getIterator()[0]->delete();
+                $votequestion = null;
+
+                $question = Question::find($id);
+                $question->dislike = $question->dislike - 1;
+                $question->save();
+
+                $user = User::find($question->id_user);
+
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            }
+        } else{
+
+            $vote = new VoteQuestion();
+            $vote->id = $id;
+            $vote->id_user = auth()->id();
+            $vote->vote = 0;
+            $vote->save();
+            $votequestion = $vote;
+
+            $question = Question::find($id);
+            $question->dislike = $question->dislike + 1;
+            $question->save();
+
+            $user = User::find($question->id_user);
+
+            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+        }
+
     }
 }

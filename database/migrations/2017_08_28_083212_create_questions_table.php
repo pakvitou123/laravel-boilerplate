@@ -19,6 +19,8 @@ class CreateQuestionsTable extends Migration
             $table->integer('id_group')->unsigned()->nullable();
             $table->string('title');
             $table->text('description');
+            $table->integer('like')->default('0');
+            $table->integer('dislike')->default('0');
 
             $table->foreign('id_user')
                 ->references('id')

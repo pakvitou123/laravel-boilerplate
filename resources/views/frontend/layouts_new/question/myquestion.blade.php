@@ -25,6 +25,8 @@
                                                     </div>
                                                     <div class="col-xs-12 col-md-2">
                                                         <p>09 answer</p>
+                                                        <a href="#"><i class="fa fa-thumbs-o-up" aria-hidden="true"> &nbsp;&nbsp;{{$question->like}}&nbsp;&nbsp; </i></a>
+                                                        <a href="#"><i class="fa fa-thumbs-o-down" aria-hidden="true"> &nbsp;&nbsp;{{$question->dislike}}</i></a>
 
 
 

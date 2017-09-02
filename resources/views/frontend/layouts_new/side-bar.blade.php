@@ -7,18 +7,8 @@
                         <i class="fa fa-rocket" aria-hidden="true"></i> Create Account
                     </button>
                 </a>
-            @else
-                <a href="{{route('group')}}">
-                    <button type="button" class="btn btn-default Add-friend">
-                        <i class="fa fa-rocket" aria-hidden="true"></i> Create New Group
-                    </button>
-                </a>
+            {{--@else--}}
 
-                <a href="{{route('question')}}">
-                    <button type="button" class="btn btn-default Add-friend">
-                        <i class="fa fa-rocket" aria-hidden="true"></i> Ask Question
-                    </button>
-                </a>
 
             @endif
 

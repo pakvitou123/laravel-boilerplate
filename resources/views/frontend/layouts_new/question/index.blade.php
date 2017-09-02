@@ -22,7 +22,21 @@
                                    <div class="container-fluid">
                                        <h1>{{$question->title}}</h1>
                                        <span>PUBLISHED 6 DAYS AGO BY</span>
-                                       <span><a href=""> {{$user->first_name.' '.$user->last_name}}</a></span><br><br>
+                                       <span><a href=""> {{$user->first_name.' '.$user->last_name}}</a></span><br>
+                                       @if($votequestion != null)
+                                            @if($votequestion->vote == 1)
+                                               <a href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" style="color: red"> &nbsp;&nbsp;{{$question->like}} </i></a>
+                                               <a href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true">&nbsp;&nbsp;{{$question->dislike}}</i><br><br></a>
+                                            @else
+                                               <a href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" > &nbsp;&nbsp;{{$question->like}} </i></a>
+                                               <a href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true" style="color: red">&nbsp;&nbsp;{{$question->dislike}}</i><br><br></a>
+                                           @endif
+                                       @else
+                                           <a href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" > &nbsp;&nbsp;{{$question->like}} </i></a>
+                                           <a href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true" >&nbsp;&nbsp;{{$question->dislike}}</i><br><br></a>
+                                       @endif
+
+
                                        <p>{{$question->description}}</p>
                                    </div>
                                </div>
