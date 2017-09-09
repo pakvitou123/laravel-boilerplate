@@ -18,6 +18,5 @@
             </div>
             <button class="btn-create-question"> Add question</button>
         </a>
-        <div>hello</div>
     </div>
 </div>
