@@ -51,29 +51,29 @@ class RegisterController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        $newUser = new User();
-        $newUser->first_name = $request->first_name;
-        $newUser->last_name = $request->last_name;
-        $newUser->email = $request->email;
-        $newUser->password = bcrypt($request->password);
-        $newUser->confirmation_code = md5(uniqid(mt_rand(), true));
-        $newUser->confirmed = true;
-        $newUser->save();
-        return redirect('/')->withFlashSuccess('User have been created successfully.');
-//        if (config('access.users.confirm_email') || config('access.users.requires_approval')) {
-//            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password'));
-//            event(new UserRegistered($user));
-//
-//            return redirect($this->redirectPath())->withFlashSuccess(
-//                config('access.users.requires_approval') ?
-//                    trans('exceptions.frontend.auth.confirmation.created_pending') :
-//                    trans('exceptions.frontend.auth.confirmation.created_confirm')
-//            );
-//        } else {
-//            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password')));
-//            event(new UserRegistered(access()->user()));
-//
-//            return redirect($this->redirectPath());
-//        }
+//        $newUser = new User();
+//        $newUser->first_name = $request->first_name;
+//        $newUser->last_name = $request->last_name;
+//        $newUser->email = $request->email;
+//        $newUser->password = bcrypt($request->password);
+//        $newUser->confirmation_code = md5(uniqid(mt_rand(), true));
+//        $newUser->confirmed = true;
+//        $newUser->save();
+//        return redirect('/')->withFlashSuccess('User have been created successfully.');
+        if (config('access.users.confirm_email') || config('access.users.requires_approval')) {
+            $user = $this->user->create($request->only('first_name', 'last_name', 'email', 'password'));
+            event(new UserRegistered($user));
+
+            return redirect($this->redirectPath())->withFlashSuccess(
+                config('access.users.requires_approval') ?
+                    trans('exceptions.frontend.auth.confirmation.created_pending') :
+                    trans('exceptions.frontend.auth.confirmation.created_confirm')
+            );
+        } else {
+            access()->login($this->user->create($request->only('first_name', 'last_name', 'email', 'password')));
+            event(new UserRegistered(access()->user()));
+
+            return redirect($this->redirectPath());
+        }
     }
 }

@@ -19,7 +19,7 @@ class FrontendController extends Controller
     public function index()
     {
         $results = User::all();
-        $result_question =Question::all();
+        $result_question = Question::all();
 //        $result_group =Group::all();
         return view('frontend/layouts_new/home_page/index', compact('results','result_question','result_group'));
     }

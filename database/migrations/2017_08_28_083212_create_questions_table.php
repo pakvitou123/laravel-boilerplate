@@ -18,6 +18,7 @@ class CreateQuestionsTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->integer('id_group')->unsigned()->nullable();
             $table->string('title');
+            $table->string('img_user');
             $table->string('count_view')->default('0');
             $table->text('description');
             $table->integer('like')->default('0');

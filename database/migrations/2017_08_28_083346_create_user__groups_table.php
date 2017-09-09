@@ -14,12 +14,13 @@ class CreateUserGroupsTable extends Migration
     public function up()
     {
         Schema::create('user__groups', function (Blueprint $table) {
-            $table->integer('id_user')->unsigned();
+            $table->integer('id')->unsigned(); // id_user
             $table->integer('id_group')->unsigned();
-            $table->boolean('priority');
+            $table->boolean('priority'); // 1 = admin ; 0 = member
 
 
-            $table->foreign('id_user')
+
+            $table->foreign('id')
                 ->references('id')
                 ->on('users')
                 ->onDelete('cascade');
@@ -28,7 +29,7 @@ class CreateUserGroupsTable extends Migration
                 ->on('groups')
                 ->onDelete('cascade');
 
-            $table->primary(['id_user', 'id_group']);
+            $table->primary(['id', 'id_group']);
             $table->timestamps();
         });
     }

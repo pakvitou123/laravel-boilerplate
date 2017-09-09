@@ -46,7 +46,7 @@ Route::get('showquestion/{id_group}', 'GroupController@showquestion')->name('sho
 Route::post('questioncreate/{id_group}','GroupController@createquestion')->name('createquestion');
 //Route::post('GroupQuestion/{')
 
-
+// route question
 Route::get('question', 'QuestionController@create')->name('question');
 Route::post('QuestionCreate', 'QuestionController@store')->name('QuestionCreate');
 Route::get('myquestion', 'QuestionController@myquestion')->name('myquestion');

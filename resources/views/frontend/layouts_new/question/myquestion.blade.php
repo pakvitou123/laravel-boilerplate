@@ -23,7 +23,7 @@
                                                     @foreach($questions as $question)
                                                         <li class="list-group-item">
                                                             <div class="col-xs-12 col-md-1">
-                                                                <img src="{{asset('/img/profile/'.Auth::user()->img)}}"
+                                                                <img src="{{asset('/img/profile/'.$question->img_user)}}"
                                                                      alt="Todd Shelton"
                                                                      class="img-responsive img-circle"
                                                                      style="width: 50px;height: 50px">
@@ -34,7 +34,7 @@
                                                                 </a>
                                                             </div>
                                                             <div class="col-xs-12 col-md-2">
-                                                                <p>09 answer</p>
+                                                                <p>{{count(\App\Models\Answer::where('id_question', $question->id)->get())}} answer</p>
 
 
                                                             </div>

@@ -53,13 +53,29 @@
                                 </div>
                                 <div class="panel-footer">
                                     <div class="btn-group">
-                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                data-toggle="dropdown">Joined
-                                            <span class="caret"></span>
-                                        </button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Leave Group</a></li>
-                                        </ul>
+                                        @if($usergroup != null)
+                                            @if($usergroup->priority == 1)
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Joined
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Delete Group</a></li>
+                                                </ul>
+                                            @else
+                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Joined
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Leave Group</a></li>
+                                                </ul>
+                                            @endif
+                                        @else
+
+                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Join
+
+                                            </button>
+                                        @endif
+
                                     </div>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default dropdown-toggle"
@@ -82,101 +98,24 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <ul class="list-group" id="contact-list">
-                                        <li class="list-group-item">
-                                            <div class="col-xs-12 col-md-1">
-                                                <img src="http://api.randomuser.me/portraits/men/24.jpg"
-                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                     style="width: 50px;height: 50px">
-                                            </div>
-                                            <div class="col-xs-12 col-md-10">
-                                                <a href="" style="color: black">The cart does not contain rowId
-                                                    ce5452f389f041ab17e46324cc050c0d.</a><br>
-                                                <span><a href="#" style="color: red">Laravel</a> </span>
-                                                <span><a href="#">15 MINUTES AGO</a></span>
-                                                <span>By</span>
-                                                <span><a href="#"> HELPMYWORLD</a></span>
-                                            </div>
-                                            <div class="col-xs-12 col-md-1">
-                                                <p>09</p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col-xs-12 col-md-1">
-                                                <img src="http://api.randomuser.me/portraits/men/24.jpg"
-                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                     style="width: 50px;height: 50px">
-                                            </div>
-                                            <div class="col-xs-12 col-md-10">
-                                                <a href="" style="color: black">The cart does not contain rowId
-                                                    ce5452f389f041ab17e46324cc050c0d.</a><br>
-                                                <span><a href="#" style="color: red">Laravel</a> </span>
-                                                <span><a href="#">15 MINUTES AGO</a></span>
-                                                <span>By</span>
-                                                <span><a href="#"> HELPMYWORLD</a></span>
-                                            </div>
-                                            <div class="col-xs-12 col-md-1">
-                                                <p>09</p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col-xs-12 col-md-1">
-                                                <img src="http://api.randomuser.me/portraits/men/24.jpg"
-                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                     style="width: 50px;height: 50px">
-                                            </div>
-                                            <div class="col-xs-12 col-md-10">
-                                                <a href="" style="color: black">The cart does not contain rowId
-                                                    ce5452f389f041ab17e46324cc050c0d.</a><br>
-                                                <span><a href="#" style="color: red">Laravel</a> </span>
-                                                <span><a href="#">15 MINUTES AGO</a></span>
-                                                <span>By</span>
-                                                <span><a href="#"> HELPMYWORLD</a></span>
-                                            </div>
-                                            <div class="col-xs-12 col-md-1">
-                                                <p>09</p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col-xs-12 col-md-1">
-                                                <img src="http://api.randomuser.me/portraits/men/24.jpg"
-                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                     style="width: 50px;height: 50px">
-                                            </div>
-                                            <div class="col-xs-12 col-md-10">
-                                                <a href="" style="color: black">The cart does not contain rowId
-                                                    ce5452f389f041ab17e46324cc050c0d.</a><br>
-                                                <span><a href="#" style="color: red">Laravel</a> </span>
-                                                <span><a href="#">15 MINUTES AGO</a></span>
-                                                <span>By</span>
-                                                <span><a href="#"> HELPMYWORLD</a></span>
-                                            </div>
-                                            <div class="col-xs-12 col-md-1">
-                                                <p>09</p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
-                                        <li class="list-group-item">
-                                            <div class="col-xs-12 col-md-1">
-                                                <img src="http://api.randomuser.me/portraits/men/24.jpg"
-                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                     style="width: 50px;height: 50px">
-                                            </div>
-                                            <div class="col-xs-12 col-md-10">
-                                                <a href="" style="color: black">The cart does not contain rowId
-                                                    ce5452f389f041ab17e46324cc050c0d.</a><br>
-                                                <span><a href="#" style="color: red">Laravel</a> </span>
-                                                <span><a href="#">15 MINUTES AGO</a></span>
-                                                <span>By</span>
-                                                <span><a href="#"> HELPMYWORLD</a></span>
-                                            </div>
-                                            <div class="col-xs-12 col-md-1">
-                                                <p>09</p>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </li>
+                                        @foreach($questions as $question)
+                                            <li class="list-group-item">
+                                                <div class="col-xs-12 col-md-1">
+                                                    <img src="{{asset('img/profile/'.$question->img_user)}}" alt="Todd Shelton" class="img-responsive img-circle" style="width: 50px;height: 50px">
+                                                </div>
+                                                <div class="col-xs-12 col-md-10">
+                                                    <a href="" style="color: black">{{$question->title}}</a><br>
+                                                    <span ><a href="#" style="color: red">Laravel</a> </span>
+                                                    <span ><a href="#" >15 MINUTES AGO</a></span>
+                                                    <span>By</span>
+                                                    <span ><a href="#"> HELPMYWORLD</a></span>
+                                                </div>
+                                                <div class="col-xs-12 col-md-1">
+                                                    <p>{{count(\App\Models\Answer::where('id_question', $question->id)->get())}} answers</p>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>

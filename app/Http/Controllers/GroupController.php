@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Auth\Auth;
 use App\Models\Group;
 use App\Models\Question;
+use App\Models\User_Group;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
@@ -44,12 +45,28 @@ class GroupController extends Controller
 
     public function index($id)
     {
+        // $id is a id'group
+
         $group = Group::find($id);
 //        if (Auth::check() == false) {
 //            redirect('/');
 //        }
 //        dd($group->name);
-        return view('frontend.layouts_new.group.content', compact('group'));
+        $questions = Question::where('id_group', $id)->get();
+
+        $usergroupItem = User_Group::whereRaw('id = ? and id_group = ?', [auth()->id() , $id])->get();
+
+        if (count($usergroupItem) > 0){
+            $usergroup = $usergroupItem->getIterator()[0];
+            return view('frontend.layouts_new.group.content', compact('group','questions', 'usergroup'));
+        }else{
+            $usergroup = null;
+            return view('frontend.layouts_new.group.content', compact('group','questions', 'usergroup'));
+        }
+
+//        return view('frontend.layouts_new.group.content', compact('group','questions', 'usergroup'));
+
+
     }
 
     /**
@@ -78,6 +95,12 @@ class GroupController extends Controller
         $group->privacy = $request->privacy;
         $group->member_nb = '1';
         $group->save();
+
+        $usergroup = new User_Group();
+        $usergroup->id = auth()->id();
+        $usergroup->id_group = $group->id ;
+        $usergroup->priority = true;
+        $usergroup->save();
         return redirect('/mygroup');
     }
 
@@ -136,12 +159,14 @@ class GroupController extends Controller
         $question->id_user = auth()->id();
         $question->id_group = $id_group;
         $question->title = $request->title;
+        $question->img_user = \auth()->user()->img;
         $question->description = $request->description;
         $question->save();
 
         //send group data to view
         $group = Group::find($id_group);
 
-        return view('frontend.layouts_new.group.content', compact('group'));
+        return redirect()->route('index', [$id_group]) ;
+//        return view('frontend.layouts_new.group.content', compact('group'));
     }
 }

@@ -49,6 +49,8 @@ class AnswerController extends Controller
         $answer = new Answer();
         $answer->id_user = auth()->id();
         $answer->id_question = $question;
+        $answer->img_user = \auth()->user()->img;
+        $answer->name_user = \auth()->user()->first_name.' '.\auth()->user()->last_name;
         $answer->description = $request->answer;
         $answer->vote_number = 0;
         $answer->save();

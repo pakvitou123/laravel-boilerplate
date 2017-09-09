@@ -45,26 +45,22 @@
                         @foreach($result_question as $result_questions)
                             <li class="list-group-item ">
                                 <div class="col-sm-2">
-                                    <img src="{{asset('/img/profile/'.@Auth::user()->img)}}"
+                                    <img src="{{asset('/img/profile/'.$result_questions->img_user)}}"
                                          alt="Todd Shelton" class="img-responsive img-circle"
                                          style="width: 50px;height: 50px">
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <a href="{{route('indexquestion',[$result_questions->id])}}"
                                        style="color: black">
                                         <h4>{{$result_questions->title}}</h4></a>
                                 </div>
                                 <div class="col-sm-2">
-                                    <p>09 answer</p>
+                                    <p>{{count(\App\Models\Answer::where('id_question', $result_questions->id)->get())}} answer</p>
                                 </div>
-                                @if(!Auth::guest())
-                                <div class="col-sm-1">
-                                    <a href="{{route('editquestion', [$result_questions->id])}}"><i
-                                                class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
-                                    <a href="{{route('deletequestion', [$result_questions->id])}}"><i
-                                                class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>
+                                <div class="col-sm-2">
+                                    <p>{{$result_questions->count_view}} view</p>
                                 </div>
-                                @endif
+
                                 <div class="clearfix"></div>
                             </li>
                         @endforeach
