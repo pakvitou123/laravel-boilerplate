@@ -9,18 +9,28 @@
     <link href="{{ asset('css/css.css')}}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js')}}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
-
     @yield('header')
+    <style>
+        *{
+            margin: 0px;
+            padding:0px;
+        }
+        body{
+            /*background-color: #e9ebee;*/
+            background-color: #ffffff;
+            /*background-color: #4267b2;;*/
+        }
+    </style>
 </head>
 <body>
     @include('frontend.layouts_new.nav-bar')
-<div class="container-fluid">
-    <div class="row">
-       @include('frontend.layouts_new.side-bar')
+    @yield('content')
+    {{--@include('frontend.layouts_new.side-bar')--}}
 
-        @yield('content')
-    </div>
-</div>
+
+
+
+
 
 </body>
 </html>

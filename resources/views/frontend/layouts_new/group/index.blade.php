@@ -17,10 +17,14 @@
 <div class="container-fluid">
     <div class="row">
         {{--@include('frontend.layouts_new.group.side-bar')--}}
-        @yield('side-bar')
-        @yield('content')
-    </div>
-</div>
 
+        {{--@yield('content')--}}
+        <div class="col-md-12">
+            <div class="col-md-3">@yield('side-bar')</div>
+            <div class="col-md-9">@yield('content')</div>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>

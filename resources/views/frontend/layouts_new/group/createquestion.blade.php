@@ -4,7 +4,7 @@
     @include('frontend.layouts_new.side-bar')
 @endsection
 @section('content')
-    <div class="col-md-9">
+    <div class="col-md-12" style="margin-top: 3%">
         <div class="row">
             <div class="main-content">
                 <div class="container-fluid">

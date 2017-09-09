@@ -16,8 +16,7 @@ class searchController extends Controller
         $result_question = DB::table('questions')->where('title', 'like', '%' . $text . '%')->get();
         $result_group = DB::table('groups')->where('name', 'like', '%' . $text . '%')->get();
 //        dd($results,$result_question);
-        if (count($results) > 0 || count($result_question) > 0 || count($result_group) > 0) {
-//            dd($results);
+
             return view('frontend/layouts_new/home_page/index', compact('results', 'result_question', 'result_group'));
 //        }else
 //        {
@@ -25,5 +24,5 @@ class searchController extends Controller
 //            return view('frontend/layouts_new/home_page/index',compact('error'));
 //        }
         }
-    }
+
 }

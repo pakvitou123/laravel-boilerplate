@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+//use App\Helpers\Auth\Auth;
 use App\Models\Answer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnswerController extends Controller
 {
@@ -11,7 +13,13 @@ class AnswerController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
      */
+    public function _construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         //
@@ -33,9 +41,18 @@ class AnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request ,$question)
     {
-        //
+        if (Auth::check() == false) {
+            return redirect('login');
+        }
+        $answer = new Answer();
+        $answer->id_user = auth()->id();
+        $answer->id_question = $question;
+        $answer->description = $request->answer;
+        $answer->vote_number = 0;
+        $answer->save();
+        return redirect()->back();
     }
 
     /**
