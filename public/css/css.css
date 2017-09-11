@@ -114,14 +114,17 @@ li>i {
     border-radius: 0px;
     cursor: pointer;
     text-decoration: none;
-    /*background-color: transparent;*/
+    color: #4d545d;
+    padding: 11.5px 0;
+    position: relative;
+    z-index: 200;
 }
 
-#on-hover{
-    /*padding:15px;*/
-    border-radius: 4px;
-    margin-right: 250px;
-    position:relative;
+.on-hover{
+    position: absolute;
+    margin-left: 80%;
+    margin-top: -45px;
+
 }
 a:hover#on-hover1{
     background-color: #325999;
@@ -129,8 +132,9 @@ a:hover#on-hover1{
 }
 .search-expanded{
     width: 650px;
+    height:35px;
     margin-left: 20px;
-    margin-top: 5px;
+    /*margin-top: 5px;*/
     box-sizing: border-box;
     border: 1px solid #ffffff;
     border-radius: 4px;
@@ -141,28 +145,24 @@ a:hover#on-hover1{
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
-    /*transition: width 0.4s ease-in-out;*/
-    position:absolute;
-    line-height: 20px;
+    /*position:absolute;*/
+    /*line-height: 20px;*/
 
 }
 .button-search{
     position: absolute;
+    /*float: left;*/
     background-color: #00b1b3;
     color: #fff;
     border:#00b1b3;
     /*height: auto!important;*/
-    padding: 7px 20px;
-    margin-left: 577px;
-    margin-top: 8px;
-    width:auto;
-    height:auto;
-    line-height: 27px;
+    padding: 4px 15px;
+    margin-left: -83px;
+    margin-top: 3px;
+    /*line-height: 27px;*/
     font-size:16px;
+
 }
-/*.search-expanded:focus {*/
-    /*width: 50%;*/
-/*}*/
 #question-group{
     background-color: #ffffff;
     /*margin-top: 30px;*/
@@ -232,17 +232,25 @@ a:hover#on-hover1{
     font-weight: bold;
     border-radius: 3px;
 }
-#left-side-background{
+.sidebar-bgcolor
+{
+    width: 330px;
+    height: 100%;
     background-color: #e9ebee;
-    width: 300px;
-    padding: 0px;
+    margin-left: -30px;
+    position: relative;
     border-radius: 4px;
-    margin-bottom: 20%;
 }
+
 .list-group-item
 {
     color: #4d545d;
     text-align: left;
     font-weight: 400;
     font-size:18px;
+}
+.log-brand{
+    float: left;
+    font-size: 20px;
+    margin-left: 50px;
 }

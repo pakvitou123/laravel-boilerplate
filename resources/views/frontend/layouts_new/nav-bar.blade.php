@@ -67,32 +67,27 @@
 
 <nav class="navbar navbar-default" id="nav">
     <div class="container-fluid">
-        <div class="navbar-header" style="padding-left:50px; ">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{{route('frontend.index')}}" style=" color: #fff;">Stackio</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <a class="log-brand" href="{{route('frontend.index')}}" style=" color: #fff;margin-left: 16%">Stackio</a>
+        <div class="collapse navbar-collapse">
+
             <form>
-                <input type="text" name="search" placeholder="Search.." class="search-expanded" >
+                <input type="text" name="search" placeholder="Search.." class="search-expanded">
                 <button type="submit" class="button-search">Search</button>
             </form>
-            <ul class="nav navbar-nav navbar-right" id="on-hover">
+            <ul class="nav navbar-nav navbar-right on-hover">
                 @if(Auth::guest())
-                    {{--<li><a href="">Create Account </a></li>--}}
-                    <li><a href="{{route('frontend.auth.login')}}" style=" color: #fff;" id="on-hover1" ><i
-                                    class="fa fa-sign-in" aria-hidden="true" id="on-hover1"></i>
-                            SIGN IN</a></li>
-                    <li><a href="{{route('frontend.auth.register')}}" style=" color: #fff;" id="on-hover1"><i class="fa fa-sign-out"
-                                                                                               aria-hidden="true"></i>
-                            SIGN UP</a></li>
-                @else
+                    <li>
+                        <a href="{{route('frontend.auth.register')}}" style=" color: #fff;" id="on-hover1">
+                            <i class="fa fa-sign-out" aria-hidden="true"></i>SIGN UP
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('frontend.auth.login')}}" style=" color: #fff;" class="on-hover1">
+                            <i class="fa fa-sign-in" aria-hidden="true" id="on-hover1"></i>SIGN IN
+                        </a>
+                    </li>
 
+                @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             <img src="{{asset('/img/profile/'.Auth::user()->img )}}" style="width: 30px;height: 30px; color: #fff;" class="glyphicon glyphicon-user">
@@ -120,4 +115,3 @@
         </div>
     </div>
 </nav>
-</div>
