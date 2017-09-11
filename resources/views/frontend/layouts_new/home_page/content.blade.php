@@ -58,7 +58,7 @@
                                     <p>{{count(\App\Models\Answer::where('id_question', $result_questions->id)->get())}} answer</p>
                                 </div>
                                 <div class="col-sm-2">
-                                    <p>{{$result_questions->count_view}} view</p>
+                                    <p>{{$result_questions->count_view}}view</p>
                                 </div>
 
                                 <div class="clearfix"></div>
