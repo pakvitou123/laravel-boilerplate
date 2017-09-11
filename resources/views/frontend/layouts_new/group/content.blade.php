@@ -70,10 +70,8 @@
                                                 </ul>
                                             @endif
                                         @else
+                                            <a href="#"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Join</button></a>
 
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Join
-
-                                            </button>
                                         @endif
 
                                     </div>

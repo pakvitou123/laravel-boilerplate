@@ -130,7 +130,7 @@ class QuestionController extends Controller
 
 //        $question = VoteQuestion::find($id)->unionAll();
 //        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
-
+        $answer = Answer::where('id_question', $id)->get();
         if(count($vote->getIterator()) > 0){
 
             if($vote->getIterator()[0]->vote == 0){
@@ -146,7 +146,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -156,7 +156,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
             }
         } else{
 
@@ -174,7 +174,7 @@ class QuestionController extends Controller
             $user = User::find($question->id_user);
 //            return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
 
-            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
         }
 
     }
@@ -187,7 +187,7 @@ class QuestionController extends Controller
 
 //        $question = VoteQuestion::find($id)->unionAll();
 //        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
-
+        $answer = Answer::where('id_question', $id)->get();
         if(count($vote->getIterator()) > 0){
             if($vote->getIterator()[0]->vote == 1){
 
@@ -201,7 +201,7 @@ class QuestionController extends Controller
                 $question->save();
 
                 $user = User::find($question->id_user);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -212,7 +212,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
             }
         } else{
 
@@ -229,7 +229,7 @@ class QuestionController extends Controller
 
             $user = User::find($question->id_user);
 
-            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion'));
+            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
         }
 
     }

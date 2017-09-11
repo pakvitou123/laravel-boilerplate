@@ -28,6 +28,27 @@
                                                 <h1>{{$question->title}}</h1>
                                                 <span>PUBLISHED 6 DAYS AGO BY</span>
                                                 <span><a href=""> {{$user->first_name.' '.$user->last_name}}</a></span><br><br>
+                                                @if($votequestion != null)
+                                                    @if($votequestion->vote == 1)
+                                                        <div class="test">
+                                                            <a class="like" href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" style="color: red"></i><span class="count-likes">{{$question->like}}</span></a>
+                                                            <a class="dislike" href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true">&nbsp;<span class="count-dislikes">{{$question->dislike}}</span></i><br><br></a>
+
+                                                        </div>
+                                                    @else
+                                                        <div>
+                                                            <a class="like" href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" ></i><span class="count-likes">{{$question->like}}</span></a>
+                                                            <a href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true" style="color: red">&nbsp;&nbsp;{{$question->dislike}}</i><br><br></a>
+
+                                                        </div>
+                                                    @endif
+                                                @else
+                                                    <div>
+                                                        <a class="like" href="{{route('likequestion',[$question->id])}}"><i class="fa fa-thumbs-o-up" aria-hidden="true" ></i><span class="count-likes">{{$question->like}}</span></a>
+                                                        <a class="unlike" href="{{route('dislikequestion',[$question->id])}}"><i class="fa fa-thumbs-o-down" aria-hidden="true" >&nbsp;&nbsp;{{$question->dislike}}</i><br><br></a>
+
+                                                    </div>
+                                                @endif
                                                 <p>{{$question->description}}</p>
                                             </div>
                                         </div>
@@ -43,6 +64,7 @@
                                                             </div>
                                                             <div class="col-xs-12 col-md-11">
                                                                 <a href="" style="color: #00b1b3"><b>{{$answers->name_user}}</b></a><br>
+
                                                                 <p>{{$answers->description}}</p>
                                                                 <a href="" style="color: #00b1b3">documentation
                                                                     here.</a><br>
