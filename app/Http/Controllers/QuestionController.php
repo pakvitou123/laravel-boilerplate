@@ -21,7 +21,7 @@ class QuestionController extends Controller
      */
 
     public function index($id)  // id is id'question
-    {
+    {   $result_question =
         $question = Question::find($id);
         $question->count_view = $question->count_view + 1; // increase count view + 1
         $question->update();
@@ -36,8 +36,6 @@ class QuestionController extends Controller
             $votequestion = null;
             return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion', 'answer'));
         }
-
-
 
     }
 

@@ -18,10 +18,11 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $results = User::all();
+        $users = User::all();
+//        dd($user);
         $result_question = Question::all();
 //        $result_group =Group::all();
-        return view('frontend/layouts_new/home_page/index', compact('results','result_question','result_group'));
+        return view('frontend/layouts_new/home_page/index', compact('users','result_question','result_group'));
     }
 
     /**

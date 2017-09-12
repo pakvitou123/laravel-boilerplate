@@ -9,9 +9,6 @@
         <div class="col-md-9">
             @include('frontend.layouts_new.home_page.content')
         </div>
-        @if(!Auth::guest())
-
-        @endif
     </div>
 
 @endsection

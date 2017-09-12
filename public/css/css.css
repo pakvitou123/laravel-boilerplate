@@ -131,9 +131,9 @@ a:hover#on-hover1{
     /*#e9ebee*/
 }
 .search-expanded{
-    width: 650px;
+    width: 705px;
     height:35px;
-    margin-left: 20px;
+    margin-left: 60px;
     /*margin-top: 5px;*/
     box-sizing: border-box;
     border: 1px solid #ffffff;
@@ -141,7 +141,7 @@ a:hover#on-hover1{
     font-size: 16px;
     background-color: white;
     background-image: url('https://www.w3schools.com/howto/searchicon.png');
-    background-position: 10px 10px;
+    background-position: 10px ;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     -webkit-transition: width 0.4s ease-in-out;
@@ -234,7 +234,7 @@ a:hover#on-hover1{
 }
 .sidebar-bgcolor
 {
-    width: 330px;
+    width: 371px;
     height: 100%;
     background-color: #e9ebee;
     margin-left: -30px;
@@ -253,4 +253,89 @@ a:hover#on-hover1{
     float: left;
     font-size: 20px;
     margin-left: 50px;
+}
+.question
+{   width: 790px;
+    /*background-color: black;*/
+    position: relative;
+    height: 400px;
+    margin-top: 50px;
+    margin-left: 60px;
+    /*border:1px solid black;*/
+    /*border-top: 0px;*/
+}
+.is-position
+{
+    margin-left: -85px;
+    width:500px;
+}
+.is-circle
+{
+    border-radius: 50%;
+}
+.is-title a{
+    color: #4d545d;
+    /*font-size: 100%;*/
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.is-link
+{
+    font-size: 0.8em;
+    font-weight: 700;
+    color: rgb(245, 104, 87);
+}
+.is-link-color
+{
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #cacaca;
+}
+.is-link-creator
+{
+    font-size: 0.8em;
+    font-weight: 700;
+    color: #00b1b3;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transition: none 86ms ease-out;
+    transition: none 86ms ease-out;
+}
+.description
+{
+    font-size: 13px;
+    color: #919499;
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-transition: none 86ms ease-out;
+    transition: none 86ms ease-out;
+    margin-top: 10px;
+}
+.conversation-list-view-count
+{
+    color:#848d95;
+    font-size: 15px;
+    /*font: inherit;*/
+    vertical-align: baseline;
+    float: right;
+    margin-top: -50px;
+    margin-right: -290px;
+
+}
+.conversation-list-answer-count
+{
+    color:#848d95;
+    font-size: 15px;
+    /*font: inherit;*/
+    vertical-align: baseline;
+    float: right;
+    margin-top: -50px;
+    margin-right: -200px;
+
+}
+.is-posted
+{
+    margin-top:-15px;
 }

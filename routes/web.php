@@ -57,5 +57,8 @@ Route::get('deletequestion/{id}', 'QuestionController@destroy')->name('deleteque
 Route::get('like/{id}', 'QuestionController@like')->name('likequestion');
 Route::get('dislike/{id}', 'QuestionController@dislike')->name('dislikequestion');
 
-Route::any('search','searchController@search')->name('search');
+//search
+Route::any('/search','searchController@search')->name('search');
+
+//answer
 Route::any('answer/{id}','AnswerController@store')->name('answer');
