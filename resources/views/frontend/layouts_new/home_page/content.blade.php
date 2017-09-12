@@ -1,40 +1,4 @@
-{{--<div class="container col-md-10" id="user-content">--}}
-    {{--@if(count($results) > 0)--}}
-        {{--<div class="container-fluid">--}}
-            {{--<ul class="list-group" id="contact-list">--}}
-                {{--@foreach($results as $result)--}}
-                    {{--<li class="list-group-item col-sm-12" style="border-bottom: 0px;border-top: 0px">--}}
-                        {{--<div class="col-sm-2">--}}
-                            {{--<img src="http://api.randomuser.me/portraits/men/24.jpg"--}}
-                                 {{--alt="Todd Shelton" class="img-responsive img-circle"--}}
-                                 {{--style="width: 50px;height: 50px">--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-9">--}}
-                            {{--<a href="" style="color: black">{{$result->first_name}}</a><br>--}}
-                            {{--<span><a href="#" style="color: red">Laravel</a> </span>--}}
-                            {{--<span><a href="#">15 MINUTES AGO</a></span>--}}
-                            {{--<span>By</span>--}}
-                            {{--<span><a href="#"> HELPMYWORLD</a></span>--}}
-                        {{--</div>--}}
-                        {{--<div class="col-md-1">--}}
-                            {{--<p>09</p>--}}
-                        {{--</div>--}}
-                        {{--<div class="clearfix">hello</div>--}}
-                    {{--</li>--}}
-                    {{--<li class="page-header">--}}
-                        {{--<div class="row"></div>--}}
-                    {{--</li>--}}
-                {{--@endforeach--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-    {{--@else--}}
-        {{--<h1>Not found</h1>--}}
-    {{--@endif--}}
-{{--</div>--}}
-{{--<div class="question">--}}
-    {{--<div class="conversation-list">--}}
-        {{--<div class="conversation-list-avatar">--}}
-            {{--<div>--}}
+
 {{--=========================--}}
 
 <div class="question">
@@ -63,8 +27,6 @@
                     </span>
                 </div>
                 <div class="description ">
-                    {{--Hello! I've just got a fresh 5.5 installed, and run artisan make:auth When i fill in the register--}}
-                    {{--form, the page just reloads the register p...--}}
                     {{$result_questions->description}}
                     <span class="is-muted">...</span>
                 </div>

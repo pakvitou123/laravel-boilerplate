@@ -1,71 +1,6 @@
-{{--<nav class="navbar navbar-inverse">--}}
-    {{--<div class="container-fluid">--}}
-        {{--<div class="navbar-header">--}}
-            {{--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-                {{--<span class="icon-bar"></span>--}}
-            {{--</button>--}}
-            {{--<a class="navbar-brand" href="{{route('frontend.index')}}">Stack overflow</a>--}}
-        {{--</div>--}}
-        {{--<div class="collapse navbar-collapse" id="myNavbar">--}}
-            {{--<div class="col-md-6 hidden-xs">--}}
-                {{--{!! Form::open(['url'=>'/search','class'=>'navbar-form']) !!}--}}
-                {{--<div class="col-sm-4">--}}
-                    {{--<div class="form-group">--}}
-                        {{--{{Form::text('text',null,array('class'=>'form-control','placeholder'=>'Type Words','required'))}}--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-sm-2">--}}
-                    {{--<div class="btn-group">--}}
-                        {{--{{Form::submit('Search',['class'=>'btn btn-default'])}}--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--{!! Form::close() !!}--}}
-            {{--</div>--}}
-            {{--<div class="col-md-3 col-md-offset-1">--}}
-                {{--<ul class="nav navbar-nav navbar-right">--}}
-                    {{--@if(Auth::guest())--}}
-                        {{--<li><a href="{{route('frontend.auth.register')}}"><span class="glyphicon glyphicon-user"></span>--}}
-                                {{--Sign Up</a></li>--}}
-                        {{--<li><a href="{{route('frontend.auth.login')}}"><span class="glyphicon glyphicon-log-in"></span>--}}
-                                {{--Login</a></li>--}}
-                    {{--@else--}}
-                        {{--<li class="dropdown">--}}
-                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"--}}
-                               {{--aria-expanded="false">--}}
-                                {{--<img src="{{asset('/img/profile/'.Auth::user()->img )}}"--}}
-                                     {{--style="width: 30px;height: 30px;"--}}
-                                     {{--class="glyphicon glyphicon-user">--}}
-                                {{--{{ Auth::user()->name }} <span class="caret"></span>--}}
-                            {{--</a>--}}
-
-                            {{--<ul class="dropdown-menu" role="menu">--}}
-                                {{--<li>--}}
-                                    {{--<a href="{{ route('frontend.auth.logout') }}">--}}
-                                        {{--<h4>ចាកចេញ</h4>--}}
-                                    {{--</a>--}}
-
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<a href="{{route('profile')}}">--}}
-                                        {{--<h4>ផ្លាស់ប្ដូររូបភាព</h4>--}}
-                                    {{--</a>--}}
-                                {{--</li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                    {{--@endif--}}
-
-                {{--</ul>--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-{{--</nav>--}}
-
 
 {{--========================================================--}}
-
-<nav class="navbar navbar-default" id="nav">
+<nav class="navbar navbar-default" id="navbar">
     <div class="container-fluid">
         <a class="log-brand" href="{{route('frontend.index')}}" style=" color: #fff;margin-left: 16%">Stackio</a>
         <div class="collapse navbar-collapse">
@@ -89,7 +24,8 @@
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="{{asset('/img/profile/'.Auth::user()->img )}}" style="width: 30px;height: 30px; color: #fff;" class="glyphicon glyphicon-user">
+                            <img src="{{asset('/img/profile/'.Auth::user()->img )}}"
+                                 style="width: 30px;height: 30px; color: #fff;" class="glyphicon glyphicon-user">
                             <span style="color:#fff"> {{ Auth::user()->name }} </span>
                         </a>
 
@@ -107,8 +43,47 @@
                             </li>
                         </ul>
                     </li>
-                    {{--<li><a href="{{route('question')}}" style=" color: #fff;" > Ask question</a></li>--}}
-                    {{--<li><a href="{{route('group')}}" style=" color: #fff;" >Create Group </a></li>--}}
+
+                    {{--Notification--}}
+
+                    <li>
+                        <ul id="nav">
+                            <li id="notification_li">
+                                <span id="notification_count">3</span>
+                                <a href="#" id="notificationLink"><i class="fa fa-globe fa-2x notifications-menu "
+                                                                     aria-hidden="true"></i></a>
+                                <div id="notificationContainer">
+                                    <div id="notificationTitle" style="border: none">Notifications</div>
+                                    <div id="notificationsBody" class="notifications">
+                                        <div class="list-group">
+                                            <div class="col-md-12">
+                                                <button type="button" class="list-group-item" style="margin-left: -15px;width:348px;border-radius: 0px">
+                                                <div class="col-md-3">
+
+                                                        <img src="{{asset('/img/profile/smilelaugh.jpg')}}"
+                                                             alt="Todd Shelton" class="img-responsive img-circle"
+                                                             style="width: 40px;margin-left: -20px">
+
+                                                </div>
+                                                <div class="col-md-10" style="margin-left: -48px;">
+                                                    <span>
+                                                        <span class="fwb">Savorn Bon</span>
+                                                        <span class="ask"> asked to join </span>
+                                                        <span class="">Test&nbsp;ITC</span>
+                                                        <span>.</span>
+                                                        <span><img class="_10cu img _8o _8r img" src="https://static.fpnh1-1.fna.fbcdn.net/rsrc.php/v3/yX/r/eJy9hr6FcSf.png" alt=""></span>
+                                                        <span style="color: #90949c;font-size: 12px;">• 2 hours ago </span>
+                                                    </span>
+                                                </div>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="notificationFooter"><a href="#">See All</a></div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
                 @endif
             </ul>
         </div>

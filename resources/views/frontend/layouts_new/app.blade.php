@@ -16,9 +16,7 @@
             padding:0px;
         }
         body{
-            /*background-color: #e9ebee;*/
             background-color: #ffffff;
-            /*background-color: #4267b2;;*/
         }
     </style>
 </head>
