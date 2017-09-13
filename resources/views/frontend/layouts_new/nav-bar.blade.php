@@ -78,6 +78,29 @@
                                                 </button>
                                             </div>
                                         </div>
+                                        <div class="list-group">
+                                            <div class="col-md-12">
+                                                <button type="button" class="list-group-item" style="margin-left: -15px;width:348px;border-radius: 0px">
+                                                    <div class="col-md-3">
+
+                                                        <img src="{{asset('/img/profile/smilelaugh.jpg')}}"
+                                                             alt="Todd Shelton" class="img-responsive img-circle"
+                                                             style="width: 40px;margin-left: -20px">
+
+                                                    </div>
+                                                    <div class="col-md-10" style="margin-left: -48px;">
+                                                    <span>
+                                                        <span class="fwb">Savorn Bon</span>
+                                                        <span class="ask"> asked to join </span>
+                                                        <span class="">Test&nbsp;ITC</span>
+                                                        <span>.</span>
+                                                        <span><img class="_10cu img _8o _8r img" src="https://static.fpnh1-1.fna.fbcdn.net/rsrc.php/v3/yX/r/eJy9hr6FcSf.png" alt=""></span>
+                                                        <span style="color: #90949c;font-size: 12px;">• 2 hours ago </span>
+                                                    </span>
+                                                    </div>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div id="notificationFooter"><a href="#">See All</a></div>
                                 </div>

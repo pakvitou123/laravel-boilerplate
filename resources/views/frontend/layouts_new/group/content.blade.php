@@ -8,44 +8,17 @@
             background-color: #2196F3;
         }
     </style>
-    <div>
-
-    </div>
-@endsection
-@section('side-bar')
-    <div class="col-md-3">
-        <br>
-        <div class="left-navigation">
-            {{--<ul class="list-group">--}}
-            {{--<a href="#"><h3><span style="padding-left: 40px">{{$group->name}}</span></h3></a>--}}
-            {{--<li><a href="#"><i class="fa fa-globe" aria-hidden="true"></i>Discussion</a></li>--}}
-            {{--<li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Members</a></li>--}}
-
-            {{--<li><i class="fa fa-hand-o-right" aria-hidden="true"></i>Solved</li>--}}
-            {{--<li><i class="fa fa-certificate" aria-hidden="true"></i>Unsolved</li>--}}
-            {{--<li><i class="fa fa-users" aria-hidden="true"></i></i>No Replies Yet</li>--}}
-            {{--<li><i class="fa fa-bar-chart" aria-hidden="true"></i>Leaderborde</li>--}}
-            {{--</ul>--}}
-            <div class="list-group">
-                <a href="#"><h3><span style="padding-left: 40px">{{$group->name}}</span></h3></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">Discussion</i></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">Members</i></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">Solved</i></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">Unsolved</i></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">No Replies Yet</i></a>
-                <a class="list-group-item" href="#buttons"><i style="font-size:16px" class="fa fa-globe" aria-hidden="true">Leaderborde</i></a>
-            </div>
-        </div>
-    </div>
-
 @endsection
 @section('content')
-    <div class="col-md-9">
+    {{--profile-Group--}}
+    <div class="col-md-9" style="margin-left: 45px;margin-top: 25px;">
         <div class="row">
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
+
+
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <img class="img-responsive" style=" height: 300px;width: 100%"
@@ -55,14 +28,16 @@
                                     <div class="btn-group">
                                         @if($usergroup != null)
                                             @if($usergroup->priority == 1)
-                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Joined
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">Joined
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
                                                     <li><a href="#">Delete Group</a></li>
                                                 </ul>
                                             @else
-                                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Joined
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">Joined
                                                     <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu" role="menu">
@@ -70,7 +45,11 @@
                                                 </ul>
                                             @endif
                                         @else
-                                            <a href="#"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Join</button></a>
+                                            <a href="#">
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">Join
+                                                </button>
+                                            </a>
 
                                         @endif
 
@@ -92,36 +71,74 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <ul class="list-group" id="contact-list">
-                                        @foreach($questions as $question)
-                                            <li class="list-group-item">
-                                                <div class="col-xs-12 col-md-1">
-                                                    <img src="{{asset('img/profile/'.$question->img_user)}}" alt="Todd Shelton" class="img-responsive img-circle" style="width: 50px;height: 50px">
-                                                </div>
-                                                <div class="col-xs-12 col-md-10">
-                                                    <a href="" style="color: black">{{$question->title}}</a><br>
-                                                    <span ><a href="#" style="color: red">Laravel</a> </span>
-                                                    <span ><a href="#" >15 MINUTES AGO</a></span>
-                                                    <span>By</span>
-                                                    <span ><a href="#"> HELPMYWORLD</a></span>
-                                                </div>
-                                                <div class="col-xs-12 col-md-1">
-                                                    <p>{{count(\App\Models\Answer::where('id_question', $question->id)->get())}} answers</p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    Approve or Decline
+
+    <div class="profifle-user-join-group">
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <img src="{{asset('img/profile/vitou.jpg')}}"
+                     alt="@default"
+                     class="img-responsive img-circle"
+                     style="border: 2px solid #f5f5f5;
+width: 50px;max-width: 100%;
+background: #fff!important;
+margin-top: 25px;margin-left: -15px;">
+            </div>
+            <div class="col-md-9 ">
+                <div class=" btn-approve-decline">
+                    <button class="btn-approve"></button>
+                    <button class="btn-decline"></button>
+                </div>
+                <div class="user-name">
+                    <a href="#">Vitou</a>
+                </div>
+                <ul class="user-group">
+                    <span>Member of </span>
+                    <li>
+                        <a href="#">GIC Promotion 17th</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    Questions & Answers
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <ul class="list-group" id="contact-list">
+                @foreach($questions as $question)
+                    <li class="list-group-item">
+                        <div class="col-xs-12 col-md-1">
+                            <img src="{{asset('img/profile/'.$question->img_user)}}"
+                                 alt="Todd Shelton" class="img-responsive img-circle"
+                                 style="width: 50px;height: 50px">
+                        </div>
+                        <div class="col-xs-12 col-md-10">
+                            <a href="" style="color: black">{{$question->title}}</a><br>
+                            <span><a href="#" style="color: red">Laravel</a> </span>
+                            <span><a href="#">15 MINUTES AGO</a></span>
+                            <span>By</span>
+                            <span><a href="#"> HELPMYWORLD</a></span>
+                        </div>
+                        <div class="col-xs-12 col-md-1">
+                            <p>{{count(\App\Models\Answer::where('id_question', $question->id)->get())}}
+                                answers</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+
 @endsection
+

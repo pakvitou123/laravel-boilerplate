@@ -443,3 +443,13 @@ a:hover#on-hover1{
     color:#888888;
     font-size:12px;
 }
+.profifle-user-join-group
+{
+     background-color: #f5f5f5;;
+    border: 1px solid #ddd;
+    width: 689px ;
+    height:150px;
+    position: relative;
+    margin-top: 430px;
+    margin-left: 60px;
+}

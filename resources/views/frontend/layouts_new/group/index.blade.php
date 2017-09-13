@@ -14,17 +14,13 @@
 </head>
 <body>
 @include('frontend.layouts_new.nav-bar')
-<div class="container-fluid">
-    <div class="row">
-        {{--@include('frontend.layouts_new.group.side-bar')--}}
 
-        {{--@yield('content')--}}
-        <div class="col-md-12">
-            <div class="col-md-3">@yield('side-bar')</div>
-            <div class="col-md-9">@yield('content')</div>
-        </div>
+<div class="col-md-12">
+    <div class="col-md-3">
+        @include('frontend.layouts_new.side-bar')
     </div>
-
+    <div class="col-md-9">@yield('content')</div>
 </div>
+
 </body>
 </html>

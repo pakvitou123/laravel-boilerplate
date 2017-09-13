@@ -22,3 +22,4 @@ Todo.rtf
 npm-debug.log
 yarn-error.log
 phpunit.txt
+/laravel-boilerplate/resources/views/frontend/layouts_new/home_page/hello.blade.php
