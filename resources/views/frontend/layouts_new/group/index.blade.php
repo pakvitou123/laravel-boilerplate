@@ -11,6 +11,7 @@
     <script src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
 
     @yield('header')
+
 </head>
 <body>
 @include('frontend.layouts_new.nav-bar')
