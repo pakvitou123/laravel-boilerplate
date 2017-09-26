@@ -14,14 +14,17 @@
                                 </p>
                                 <div class="col-md-3 col-sm-12">
                                     <div class="list-group table-of-contents">
-                                        <a class="list-group-item" href="#"><i style="color: #ef6733;" class="fa fa-globe"
-                                                                                      aria-hidden="true"></i> Discussion</a>
+                                        <a class="list-group-item" href="#"><i style="color: #ef6733;"
+                                                                               class="fa fa-globe"
+                                                                               aria-hidden="true"></i> Discussion</a>
                                         <a class="list-group-item" href="#">
-                                            <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i> Members
+                                            <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i>
+                                            Members
                                         </a>
                                         @if(!Auth::guest())
                                             <a class="list-group-item" href="#">
-                                                <i style="color: #ef6733;" class="fa fa-users" aria-hidden="true"></i> Events
+                                                <i style="color: #ef6733;" class="fa fa-users" aria-hidden="true"></i>
+                                                Events
                                             </a>
                                             <a class="list-group-item" href="#">
                                                 <i style="color: #ef6733;" class="fa fa-lightbulb-o" aria-hidden="true">&nbsp;
@@ -29,7 +32,8 @@
                                             </a>
                                         @endif
                                         <a class="list-group-item" href="#">
-                                            <i style="color: #ef6733;" class="fa fa-hand-o-right" aria-hidden="true"></i>
+                                            <i style="color: #ef6733;" class="fa fa-hand-o-right"
+                                               aria-hidden="true"></i>
                                             Photos
                                         </a>
                                         <a class="list-group-item" href="#">
@@ -38,7 +42,7 @@
                                         </a>
                                     </div>
                                     {{--@if(!Auth::guest())--}}
-                                        {{--<span>@include('frontend.layouts_new.home_page.left-side')</span>--}}
+                                    {{--<span>@include('frontend.layouts_new.home_page.left-side')</span>--}}
                                     {{--@endif--}}
                                 </div>
 
@@ -64,27 +68,13 @@
                                         </div>
                                         <div class="panel-footer">
                                             <div class="btn-group">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                                data-toggle="dropdown">Joined
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><a href="#">Delete Group</a></li>
-                                                        </ul>
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                                data-toggle="dropdown">Joined
-                                                            <span class="caret"></span>
-                                                        </button>
-                                                        <ul class="dropdown-menu" role="menu">
-                                                            <li><a href="#">Leave Group</a></li>
-                                                        </ul>
-                                                    <a href="#">
-                                                        <button type="button" class="btn btn-default dropdown-toggle"
-                                                                data-toggle="dropdown">Join
-                                                        </button>
-                                                    </a>
-
-
+                                                <button type="button" class="btn btn-default dropdown-toggle"
+                                                        data-toggle="dropdown">Joined
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="#">Delete Group</a></li>
+                                                </ul>
                                             </div>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-default dropdown-toggle"
@@ -136,9 +126,18 @@
                             </li>
                         </ul>
                         <div class=" btn-approve-decline-block">
-                            <a href="#"><button class="btn-approve" ><i class="fa fa-check" aria-hidden="true"></i> Approve</button></a>
-                            <a href="#"><button class="btn-decline"><i class="fa fa-times" aria-hidden="true"></i> Decline</button></a>
-                            <a href="#"><button class="btn-block"><i class="fa fa-minus-circle" aria-hidden="true"></i>Block</button></a>
+                            <a href="#">
+                                <button class="btn-approve"><i class="fa fa-check" aria-hidden="true"></i> Approve
+                                </button>
+                            </a>
+                            <a href="#">
+                                <button class="btn-decline"><i class="fa fa-times" aria-hidden="true"></i> Decline
+                                </button>
+                            </a>
+                            <a href="#">
+                                <button class="btn-block"><i class="fa fa-minus-circle" aria-hidden="true"></i>Block
+                                </button>
+                            </a>
 
                         </div>
                     </div>
@@ -153,25 +152,21 @@
 
 @section('script')
     <script type="text/javascript" src="js/jquery.min.1.9.js"></script>
-    <script type="text/javascript" >
-        $(document).ready(function()
-        {
-            $("#notificationLink").click(function()
-            {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#notificationLink").click(function () {
                 $("#notificationContainer").fadeToggle(300);
                 $("#notification_count").fadeOut("slow");
                 return false;
             });
 
 //Document Click hiding the popup
-            $(document).click(function()
-            {
+            $(document).click(function () {
                 $("#notificationContainer").hide();
             });
 
 //Popup on click
-            $("#notificationContainer").click(function()
-            {
+            $("#notificationContainer").click(function () {
                 return false;
             });
 

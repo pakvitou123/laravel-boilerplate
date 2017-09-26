@@ -65,3 +65,7 @@ Route::any('answer/{id}','AnswerController@store')->name('answer');
 //show-requestion
 
 Route::any('showRequest','NotificationController@show')->name('showRequest');
+
+//List-members
+
+Route::any('listmember','GroupController@listmembers')->name('listmember');

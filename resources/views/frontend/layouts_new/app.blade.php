@@ -9,6 +9,7 @@
     <link href="{{ asset('css/css.css')}}" rel="stylesheet">
     <script src="{{ asset('js/jquery.min.js')}}"></script>
     <script src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
+    <script src="//cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
     @yield('header')
     <style>
         *{

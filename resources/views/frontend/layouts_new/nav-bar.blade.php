@@ -44,7 +44,6 @@
                     </li>
 
                     {{--Notification--}}
-
                     <li>
                         <ul id="nav">
                             <li id="notification_li">

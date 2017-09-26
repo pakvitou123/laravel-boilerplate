@@ -356,6 +356,7 @@ a:hover#on-hover1{
     margin-top: 25px;
     width: 350px;
     z-index: -1;
+    cursor: pointer;
     display: none; // Enable this after jquery implementation
 }
 /*// Popup Arrow*/
@@ -370,6 +371,7 @@ a:hover#on-hover1{
        border-color: transparent transparent white;
        margin-top: -20px;
        margin-left: 317px;
+       cursor: pointer;
    }
 #notificationTitle
 {
@@ -396,6 +398,7 @@ a:hover#on-hover1{
     padding: 8px;
     font-size: 12px;
     border-top: 1px solid #dddddd;
+    cursor: pointer;
 
     /*position: inherit;*/
 }
@@ -433,10 +436,11 @@ a:hover#on-hover1{
 }
 .profifle-user-join-group
 {
-     background-color: #f5f5f5;
+    background-color: #f5f5f5;
     border: 1px solid #ddd;
     width: 689px ;
-    height:150px;
+    /*height:50%;*/
+    overflow: hidden;
     position: relative;
     margin-top: 430px;
     margin-left: 60px;
@@ -575,3 +579,8 @@ a:hover#on-hover1{
     color: #2b6dad;
 }
 textarea { margin: 1em; outline: none; text-align: justify; }
+
+.list-focus
+{
+    background-color: #FFFFFF;
+}

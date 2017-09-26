@@ -169,4 +169,7 @@ class GroupController extends Controller
         return redirect()->route('index', [$id_group]) ;
 //        return view('frontend.layouts_new.group.content', compact('group'));
     }
+    public function listmembers(){
+        return view('frontend.layouts_new.group.list-members');
+    }
 }

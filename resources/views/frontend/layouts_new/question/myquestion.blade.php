@@ -2,10 +2,10 @@
 
 @section('content')
     <div class="col-md-12">
-        <div class="col-md-3" style="margin-left: 3%">
-            @include('frontend.layouts_new.side-bar')
+        <div class="col-md-3">
+            @include('frontend.layouts_new.question.side-bar')
         </div>
-        <div class="col-md-8" style="margin-top: 2%">
+        <div class="col-md-8" style="margin-top: 2%;margin-left: 40px;">
             <div class="col-md-12">
                 <div class="row">
                     <div class="main-content">
