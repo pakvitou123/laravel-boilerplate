@@ -170,6 +170,7 @@
                                                     </a>
 
                                                 @endif
+
                                             </div>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-default dropdown-toggle"
@@ -194,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            {{--Approve or Decline--}}
+            {{--Discussion--}}
             <div class="profifle-user-join-group" style="padding: 10px;">
                 <div class="col-md-12">
                     @foreach($questions as $question)
