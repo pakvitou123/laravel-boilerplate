@@ -15,8 +15,15 @@
 </head>
 <body>
 @include('frontend.layouts_new.nav-bar')
-{{--@include('frontend.layouts_new.group.content')--}}
-{{--@yield('side-bar')--}}
-@yield('content')
+
+<div class="col-md-12">
+    <div class="col-md-3">
+        @include('frontend.layouts_new.side-bar')
+    </div>
+    <div class="col-md-9">@yield('content')</div>
+</div>
+
+@yield('script')
+
 </body>
 </html>

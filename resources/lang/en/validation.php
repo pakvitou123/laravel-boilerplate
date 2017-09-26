@@ -178,6 +178,7 @@ return [
             'group_decription'          => 'Decription here',
             'privacy'                   => 'Privacy',
             'create'                    => 'Create',
+            'add'                    => 'Add',
 
             'title'                     => 'Title',
             'question_header'           => 'Asking Question',

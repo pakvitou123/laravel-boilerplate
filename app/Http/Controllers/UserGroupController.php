@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Notification;
 use App\Models\User_Group;
 use Illuminate\Http\Request;
 
@@ -33,9 +34,19 @@ class UserGroupController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id_user, $id_group)
     {
-        //
+        $notification = Notification::whereRaw('id_user_active = ? and id_user_passive = ?',[$id_user,auth()->id()])->get();
+        $notification->getIterator()[0]->delete();
+
+        $usergroup = new User_Group();
+        $usergroup->id = $id_user;
+        $usergroup->id_group = $id_group;
+        $usergroup->priority = false;
+        $usergroup->save();
+
+
+        return redirect()->route('index', [$id_group]);
     }
 
     /**

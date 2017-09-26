@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Notification;
+use App\Models\User_Group;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Response;
 
 class NotificationController extends Controller
 {
@@ -33,9 +35,20 @@ class NotificationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($idgroup)
     {
-        //
+        $usergroup = User_Group::whereRaw('id_group = ? and priority = 1', [$idgroup])->get();
+        $usergroup = $usergroup->getIterator()[0];
+
+        $notification = new Notification();
+        $notification->id_user_active = auth()->id() ;
+        $notification->id_user_passive = $usergroup->id;
+        $notification->id_group = $idgroup;
+        $notification->action = 'request';
+        $notification->seeing = '0';
+        $notification->save();
+
+        return redirect()->route('index', [$idgroup]) ;
     }
 
     /**
@@ -44,9 +57,12 @@ class NotificationController extends Controller
      * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function show(Notification $notification)
+    public function show()
     {
-        return view('frontend.layouts_new.group.show-requestion');
+        $notifications = Notification::where([
+            ['id_user_passive', auth()->user()->id]
+        ])->get();
+        return Response::json(['status' => true, 'data' => $notifications]);
     }
 
     /**
@@ -78,8 +94,16 @@ class NotificationController extends Controller
      * @param  \App\Models\Notification  $notification
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Notification $notification)
+    public function destroy($id_group)
     {
-        //
+        $notification = Notification:: whereRaw('id_user_active = ? and id_group = ? and action = ?', [auth()->id(), $id_group, 'request'])->get();
+        $notification = $notification->getIterator()[0];
+        $notification->delete();
+        return redirect()->route('index', [$id_group]) ;
+    }
+
+    public function addmember($id_user, $id_group)
+    {
+
     }
 }

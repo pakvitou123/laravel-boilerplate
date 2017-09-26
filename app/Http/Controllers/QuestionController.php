@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Access\User\User;
 use App\Models\Answer;
+use App\Models\Notification;
 use App\Models\Question;
 
 //use App\VoteQuestion;
@@ -11,6 +12,7 @@ use App\VoteQuestion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Response;
+use PhpParser\Node\Expr\Cast\Array_;
 
 class QuestionController extends Controller
 {
@@ -28,21 +30,24 @@ class QuestionController extends Controller
         $question->update();
         $user = User::find($question->id_user);
         $vote = VoteQuestion::whereRaw('id = ? and id_user = ?',[$id, auth()->id()])->get();
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
 
         $answer = Answer::where('id_question', $id)->get();
         if(count($vote->getIterator()) > 0){
             $votequestion = $vote->getIterator()[0];
-            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion', 'answer'));
+            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion', 'answer', 'notification_nav_bars'));
         } else{
             $votequestion = null;
-            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion', 'answer'));
+            return view('frontend.layouts_new.question.index', compact('question', 'user', 'votequestion', 'answer', 'notification_nav_bars'));
         }
 
     }
 
     public function myquestion(){
         $questions = DB::table('questions')->where('id_user', \auth()->id())->get();
-        return view('frontend.layouts_new.question.myquestion', compact('questions'));
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
+
+        return view('frontend.layouts_new.question.myquestion', compact('questions', 'notification_nav_bars'));
     }
 
     /**
@@ -52,7 +57,8 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return view('frontend.layouts_new.question.create');
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
+        return view('frontend.layouts_new.question.create', compact('notification_nav_bars'));
     }
 
     /**
@@ -96,7 +102,8 @@ class QuestionController extends Controller
     public function edit($id)
     {
         $question = Question::find($id);
-        return view('frontend.layouts_new.question.edit', compact('question'));
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
+        return view('frontend.layouts_new.question.edit', compact('question', 'notification_nav_bars'));
     }
 
     /**
@@ -136,6 +143,7 @@ class QuestionController extends Controller
 //        $question = VoteQuestion::find($id)->unionAll();
 //        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
         $answer = Answer::where('id_question', $id)->get();
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
         if(count($vote->getIterator()) > 0){
 
             if($vote->getIterator()[0]->vote == 0){
@@ -151,7 +159,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -161,7 +169,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
             }
         } else{
 
@@ -179,7 +187,7 @@ class QuestionController extends Controller
             $user = User::find($question->id_user);
 //            return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
 
-            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
         }
 
     }
@@ -193,6 +201,7 @@ class QuestionController extends Controller
 //        $question = VoteQuestion::find($id)->unionAll();
 //        dd(cou$question->getIterator()[0]->id_user); //convert item or builder to model
         $answer = Answer::where('id_question', $id)->get();
+        $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
         if(count($vote->getIterator()) > 0){
             if($vote->getIterator()[0]->vote == 1){
 
@@ -206,7 +215,7 @@ class QuestionController extends Controller
                 $question->save();
 
                 $user = User::find($question->id_user);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -217,7 +226,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
             }
         } else{
 
@@ -234,7 +243,7 @@ class QuestionController extends Controller
 
             $user = User::find($question->id_user);
 
-            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer'));
+            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
         }
 
     }
