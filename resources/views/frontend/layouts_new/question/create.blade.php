@@ -1,6 +1,5 @@
 @extends('frontend.layouts_new.app')
 
-
 @section('content')
     <div class="col-md-12">
         <div class="col-md-3" style="margin-left: 3%">
@@ -60,6 +59,7 @@
             </div>
         </div>
     </div>
+
 @endsection
 
 @section('after-scripts')

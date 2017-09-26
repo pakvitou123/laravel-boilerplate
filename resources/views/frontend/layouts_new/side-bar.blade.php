@@ -86,7 +86,6 @@
                             <span>@include('frontend.layouts_new.home_page.left-side')</span>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>

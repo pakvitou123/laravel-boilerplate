@@ -90,8 +90,8 @@ class GroupController extends Controller
 
         $group = new Group();
         $group->id_user = auth()->user()->id;
-        $group->name = $request->title;
-        $group->decription = $request->decription;
+        $group->name = $request->name;
+        $group->decription = $request->description;
         $group->privacy = $request->privacy;
         $group->member_nb = '1';
         $group->save();

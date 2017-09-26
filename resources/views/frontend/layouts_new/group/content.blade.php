@@ -17,8 +17,6 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
-
-
                             <div class="panel panel-default">
                                 <div class="panel-body">
                                     <img class="img-responsive" style=" height: 300px;width: 100%"
@@ -78,39 +76,7 @@
         </div>
     </div>
 
-    Approve or Decline
-
-    <div class="profifle-user-join-group">
-        <div class="col-md-12">
-            <div class="col-md-3">
-                <img src="{{asset('img/profile/vitou.jpg')}}"
-                     alt="@default"
-                     class="img-responsive img-circle"
-                     style="border: 2px solid #f5f5f5;
-width: 50px;max-width: 100%;
-background: #fff!important;
-margin-top: 25px;margin-left: -15px;">
-            </div>
-            <div class="col-md-9 ">
-                <div class=" btn-approve-decline">
-                    <button class="btn-approve"></button>
-                    <button class="btn-decline"></button>
-                </div>
-                <div class="user-name">
-                    <a href="#">Vitou</a>
-                </div>
-                <ul class="user-group">
-                    <span>Member of </span>
-                    <li>
-                        <a href="#">GIC Promotion 17th</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-    Questions & Answers
+    {{--Questions & Answers--}}
 
     <div class="panel panel-default">
         <div class="panel-body">

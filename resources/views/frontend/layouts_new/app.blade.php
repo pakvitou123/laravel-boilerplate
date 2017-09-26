@@ -25,10 +25,7 @@
     @yield('content')
     {{--@include('frontend.layouts_new.side-bar')--}}
 
-
-
-
-
+    @yield('script')
 
 </body>
 </html>

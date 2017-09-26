@@ -62,3 +62,6 @@ Route::any('/search','searchController@search')->name('search');
 
 //answer
 Route::any('answer/{id}','AnswerController@store')->name('answer');
+//show-requestion
+
+Route::any('showRequest','NotificationController@show')->name('showRequest');

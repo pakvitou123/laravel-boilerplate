@@ -68,7 +68,7 @@ class QuestionController extends Controller
         $question->img_user = auth()->user()->img;
         $question->description = $request->description;
         $question->save();
-        return redirect('myquestion');
+        return redirect('/myquestion');
     }
 
     /**

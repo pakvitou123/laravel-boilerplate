@@ -1,6 +1,92 @@
+@if(!auth::guest())
+    <div class="btn-create-question">
+        <a href="#">
+            <img src="{{asset('img/profile/khem veasna1.jpg')}}"
+                 style="width: 20px;border-radius: 50%;margin-left: 15px;margin-top: 15px;">
+        </a>
+        <a href="#" class="user-profile-name">
+            Khem veasna
+        </a>
+        <div class="user-profile-question">
+            <a href="#" class="user-profile-name-question" data-toggle="modal" data-target="#questionModal"
+               data-whatever="@mdo"><i class="fa fa-file" aria-hidden="true"></i> What is your question?</a>
+            <a href="#" class="user-profile-name-group" data-toggle="modal" data-target="#groupModal"
+               data-whatever="@mdo" ><i class="fa fa-users" aria-hidden="true"></i> Create your own
+                group</a>
+        </div>
+    </div>
+    {{--============================--}}
+    {{--Question-form--}}
+    <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">What's your question?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('QuestionCreate')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                            <div class="form-group">
+                                <label for="recipient-name" class="form-control-label">Title:</label>
+                                <input type="text" class="form-control" id="recipient-name" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="form-control-label">Description:</label>
+                                <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description"></textarea>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Ask question</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{--=========================--}}
+    {{--Form-grup--}}
+    <div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">What is your group?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{{route('GroupCreate')}}" method="post">
+                    {{csrf_field()}}
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="recipient-name" class="form-control-label">Name</label>
+                            <input type="text" class="form-control" id="recipient-name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="form-control-label">Description:</label>
+                            <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description"></textarea>
+                        </div>
 
-{{--=========================--}}
+                        <div class="form-group">
+                            <label for="message-text" class="form-control-label">Privacy:</label>
+                            <select class="form-control" name="privacy">
+                                <option value="public">Public</option>
+                                <option value="private">Private</option>
+                            </select>
+                        </div>
 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endif
 <div class="question">
     @foreach($result_question as $result_questions)
         <div class="conversation-list">
@@ -22,8 +108,8 @@
                         @foreach( $users as $user)
                             @if($result_questions->id_user == $user->id)
                                 <a href="#" class="is-link-creator ">{{$user->first_name}}</a>
-                                @endif
-                            @endforeach
+                            @endif
+                        @endforeach
                     </span>
                 </div>
                 <div class="description ">
@@ -43,91 +129,5 @@
         </div>
     @endforeach
 </div>
-
-{{--=============================================================================--}}
-{{--<div class="col-md-10">--}}
-{{--<div class="panel panel-default" style="border-right: 0px;border-left: 0px;border-bottom: 0px;border-color: #fff;width: 100%;">--}}
-{{--<div class="panel-heading">--}}
-{{--Question--}}
-{{--</div>--}}
-{{--<div class="panel-body">--}}
-{{--@if(count($result_question) > 0)--}}
-{{--<div class="container-fluid">--}}
-{{--<ul class="list-group" id="contact-list">--}}
-{{--@foreach($result_question as $result_questions)--}}
-{{--<li class="list-group-item ">--}}
-{{--<div class="col-sm-2">--}}
-{{--<img src="{{asset('/img/profile/'.$result_questions->img_user)}}"--}}
-{{--alt="Todd Shelton" class="img-responsive img-circle"--}}
-{{--style="width: 50px;height: 50px">--}}
-{{--</div>--}}
-{{--<div class="col-md-6">--}}
-{{--<a href="{{route('indexquestion',[$result_questions->id])}}"--}}
-{{--style="color: black">--}}
-{{--<h4>{{$result_questions->title}}</h4></a>--}}
-{{--</div>--}}
-{{--<div class="col-sm-2">--}}
-{{--<p>{{count(\App\Models\Answer::where('id_question', $result_questions->id)->get())}}answer</p>--}}
-{{--</div>--}}
-{{--<div class="col-sm-2">--}}
-{{--<p>{{$result_questions->count_view}}view</p>--}}
-{{--</div>--}}
-{{--<div class="clearfix"></div>--}}
-{{--</li>--}}
-{{--@endforeach--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--@else--}}
-{{--<h1>Not found</h1>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-
-{{--<div class="col-md-12">--}}
-{{--<div class="panel panel-primary">--}}
-{{--<div class="panel-heading">--}}
-{{--Groups--}}
-{{--</div>--}}
-{{--<div class="panel-body">--}}
-{{--@if(count($result_group)>0)--}}
-{{--<div class="container-fluid">--}}
-{{--<ul class="list-group" id="contact-list">--}}
-{{--<h1>Okay</h1>--}}
-{{--@foreach($result_group as $result_groups)--}}
-
-{{--<li class="list-group-item">--}}
-{{--<div class="col-sm-2">--}}
-{{--<img src="{{asset('/img/group/'.$result_groups->img )}}" alt="Todd Shelton"--}}
-{{--class="img-responsive img-circle" style="width: 50px;height: 50px">--}}
-{{--</div>--}}
-{{--<div class="col-md-7">--}}
-{{--<a href="{{route('index',[$result_groups->id])}}" style="color: black">--}}
-{{--<h4>{{$result_groups->name}}</h4></a>--}}
-{{--</div>--}}
-{{--<div class="col-sm-2">--}}
-{{--<p>09 member</p>--}}
-{{--</div>--}}
-{{--<div class="col-sm-1">--}}
-{{--<a href="{{route('editquestion', [$result_questions->id])}}"><i--}}
-{{--class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>--}}
-{{--<a href="{{route('deletequestion', [$result_questions->id])}}"><i--}}
-{{--class="fa fa-trash-o fa-2x" aria-hidden="true"></i></a>--}}
-{{--</div>--}}
-{{--<div class="clearfix"></div>--}}
-{{--</li>--}}
-{{--@endforeach--}}
-{{--</ul>--}}
-{{--</div>--}}
-{{--@else--}}
-{{--<h1>Not found</h1>--}}
-{{--@endif--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--<h1>hello world</h1>--}}
 
 

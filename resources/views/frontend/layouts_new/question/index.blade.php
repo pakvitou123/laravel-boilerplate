@@ -83,15 +83,13 @@
                                                                 {!! Form::open(['url'=>'answer/'.$question->id]) !!}
                                                                 <div class="row">
                                                                     <div class="col-md-8">
-                                                                        {{--<textarea class="form-control" rows="7" name="textarea" id="textarea"></textarea>--}}
                                                                         {{Form::textarea('answer',null,array('class'=>'form-control','placeholder'=>'Type Words','required'))}}
                                                                     </div>
                                                                 </div>
                                                                 <br>
                                                                 <div class="row">
                                                                     <div class="col-md-offset-6">
-                                                                        <button class="btn btn-primary" >post your apply</button>
-                                                                        {{--{{Form::submit('Save',['class'=>'btn btn-default'])}}--}}
+                                                                        <button class="btn btn-primary" >Apply</button>
                                                                     </div>
                                                                 </div>
                                                                 {!! Form::close() !!}
