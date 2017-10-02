@@ -19,9 +19,8 @@ class FrontendController extends Controller
     public function index()
     {
         $users = User::all();
-//        dd($user);
-        $result_question = Question::all();
-//        $result_group =Group::all();
+        $result_question =DB::table('questions')->orderBy('created_at', 'desc')->get();
+
         return view('frontend/layouts_new/home_page/index', compact('users','result_question','result_group'));
     }
 

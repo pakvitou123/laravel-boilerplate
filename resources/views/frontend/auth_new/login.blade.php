@@ -76,3 +76,27 @@
     </div>
 
 @endsection
+@section('script')
+    <script type="text/javascript">
+        $(function () {
+            var title = [
+                    @foreach($result_question as $result_questions)
+
+                {
+                    value: '{{ $result_questions->title}}'
+
+                },
+                @endforeach
+            ];
+            // @setup autocomplete function pulling from currencies[] array
+            $('#autocomplete').autocomplete(
+                {
+                    lookup: title,
+                    onSelect: function (suggestion) {
+//                        console.log('hello');
+                        $('#btn-search').trigger('click');
+                    }
+                });
+
+    </script>
+    @endsection

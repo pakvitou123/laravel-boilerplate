@@ -14,9 +14,8 @@
                data-whatever="@mdo" ><i class="fa fa-users" aria-hidden="true"></i> Create your own
                 group</a>
         </div>
-    </div>
-    {{--============================--}}
-    {{--Question-form--}}
+    </div>{{--@end .btn-create-question}}
+    {{--@Question-form below--}}
     <div class="modal fade" id="questionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -46,8 +45,7 @@
             </div>
         </div>
     </div>
-    {{--=========================--}}
-    {{--Form-grup--}}
+    {{--@Form-group below--}}
     <div class="modal fade" id="groupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -85,7 +83,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div>{{--@end modal form--}}
 @endif
 <div class="question">
     @foreach($result_question as $result_questions)
@@ -121,13 +119,12 @@
                 </div>
                 <div class="conversation-list-view-count ">{{$result_questions->count_view}}&nbsp;views
                 </div>
-
             </div>
             <div class="row">
                 <hr style="border-color:@default;width: 100% ;margin-left: 15px;margin-top: 115px;">
             </div>
         </div>
     @endforeach
-</div>
+</div> {{--@end .question--}}
 
 

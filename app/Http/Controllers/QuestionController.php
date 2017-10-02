@@ -21,7 +21,8 @@ class QuestionController extends Controller
      */
 
     public function index($id)  // id is id'question
-    {   $result_question =
+    {
+
         $question = Question::find($id);
         $question->count_view = $question->count_view + 1; // increase count view + 1
         $question->update();

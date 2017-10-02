@@ -11,6 +11,7 @@ use App\Events\Frontend\Auth\UserLoggedIn;
 use App\Events\Frontend\Auth\UserLoggedOut;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Repositories\Frontend\Access\User\UserSessionRepository;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class LoginController.
@@ -36,7 +37,8 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('frontend.auth_new.login')
+        $result_question =DB::table('questions')->orderBy('created_at', 'desc')->get();
+        return view('frontend.auth_new.login',compact('result_question'))
             ->withSocialiteLinks((new Socialite())->getSocialLinks());
     }
 

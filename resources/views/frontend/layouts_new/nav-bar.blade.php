@@ -1,11 +1,12 @@
-{{--========================================================--}}
 <nav class="navbar navbar-default" id="navbar">
     <div class="container-fluid">
         <a class="log-brand" href="{{route('frontend.index')}}" style=" color: #fff;margin-left: 16%">Stackio</a>
         <div class="collapse navbar-collapse">
+            {{--**--Search-Field--**--}}
             <form action="{{route('search')}}" method="get">
-                <input type="text" name="title" placeholder="Search.." class="search-expanded">
-                <button type="submit" class="button-search">Search</button>
+                {{csrf_field()}}
+                <input type="text" name="title" placeholder="Search.." class="search-expanded" id="autocomplete">
+                <button type="submit" class="button-search" id="btn-search">Search</button>
             </form>
             <ul class="nav navbar-nav navbar-right on-hover">
                 @if(Auth::guest())
@@ -22,25 +23,17 @@
 
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="{{asset('/img/profile/'.Auth::user()->img )}}"
-                                 style="width: 30px;height: 30px; color: #fff;" class="glyphicon glyphicon-user">
-                            <span style="color:#fff"> {{ Auth::user()->name }} </span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
+                        <div class="dropdown">
+                            <img onclick="myFunction()" class="dropbtn dropbtn1"
+                                 src="{{asset('/img/profile/'.Auth::user()->img )}}">
+                            <div onclick="myFunction()" style="color: #FFFFFF;position: relative;margin-top: -30px;margin-left: 45px;" class="dropbtn1"> {{ Auth::user()->name }} </div>
+                            <div id="myDropdown" class="dropdown-content">
                                 <a href="{{ route('frontend.auth.logout') }}">
-                                    <h4>ចាកចេញ</h4>
-                                </a>
+                                    <h4>ចាកចេញ</h4></a>
+                                <a href="{{ route('frontend.auth.logout') }}"><h4>ផ្លាស់ប្ដូររូបភាព</h4></a>
+                            </div>
+                        </div>
 
-                            </li>
-                            <li>
-                                <a href="{{route('profile')}}">
-                                    <h4>ផ្លាស់ប្ដូររូបភាព</h4>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     {{--Notification--}}
@@ -78,7 +71,8 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <div class="list-group" style="cursor: pointer;" onclick="window.location='http://google.com';">
+                                        <div class="list-group" style="cursor: pointer;"
+                                             onclick="window.location='http://google.com';">
                                             <div class="col-md-12">
                                                 <button type="button" class="list-group-item"
                                                         style="margin-left: -15px;width:348px;border-radius: 0px">
