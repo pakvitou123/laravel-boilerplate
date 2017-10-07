@@ -1,6 +1,7 @@
+
 <nav class="navbar navbar-default" id="navbar">
     <div class="container-fluid">
-        <a class="log-brand" href="{{route('frontend.index')}}" style=" color: #fff;margin-left: 16%">Stackio</a>
+        <a class="log-brand" href="{{route('frontend.index')}}" style=" color: #fff;margin-left: 16%" >Stackio</a>
         <div class="collapse navbar-collapse">
             {{--**--Search-Field--**--}}
             <form action="{{route('search')}}" method="get">
@@ -16,11 +17,11 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('frontend.auth.login')}}" style=" color: #fff;" class="on-hover1">
+                        <a href="{{route('frontend.auth.login')}}" style=" color: #fff;" class="on-hover1" >
                             <i class="fa fa-sign-in" aria-hidden="true" id="on-hover1"></i>SIGN IN
                         </a>
-                    </li>
 
+                    </li>
                 @else
                     <li class="dropdown">
                         <div class="dropdown">
@@ -30,13 +31,11 @@
                             <div id="myDropdown" class="dropdown-content">
                                 <a href="{{ route('frontend.auth.logout') }}">
                                     <h4>ចាកចេញ</h4></a>
-                                <a href="{{ route('frontend.auth.logout') }}"><h4>ផ្លាស់ប្ដូររូបភាព</h4></a>
+                                <a href="{{ route('profile') }}"><h4>ផ្លាស់ប្ដូររូបភាព</h4></a>
                             </div>
                         </div>
 
                     </li>
-
-                    {{--Notification--}}
                     <li>
                         <ul id="nav">
                             <li id="notification_li">
@@ -104,12 +103,10 @@
                                     </a>
                                 </div>
                             </li>
-                        </ul>
+                        </ul>{{--@end ul--}}
                     </li>
                 @endif
             </ul>
         </div>
     </div>
 </nav>
-<div class="container">
-</div>

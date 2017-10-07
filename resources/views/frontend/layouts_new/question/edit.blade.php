@@ -1,15 +1,15 @@
 @extends('frontend.layouts_new.app')
 
 @section('content')
-    <div class="col-md-9">
+    <div class="col-md-9" style="margin-left: 10%;margin-top: 5%">
         <div class="row">
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8 col-md-offset-2">
-
-                            <div class="panel panel-default">
-                                <div class="panel-heading">{{ trans('validation.attributes.frontend.edit_header') }}</div>
+                            <div class="panel panel-default" style="border:1px solid #f5f5f5;background-color:  #f5f5f5;">
+                                <div class="panel-heading text-muted"
+                                     style="font-size: 20px;display: inline-block;margin-left: 245px;">{{ trans('validation.attributes.frontend.edit_header') }}</div>
 
                                 <div class="panel-body">
 
@@ -27,7 +27,7 @@
                                     <div class="form-group">
                                         {{ Form::label('decription', trans('validation.attributes.frontend.decription'),
                                         ['class' => 'col-md-4 control-label']) }}
-                                        <div class="col-md-6">
+                                        <div class="col-md-6" style="margin-left: -13px;">
                                             {{ Form::textarea('description', $question->description,
                                             ['class' => 'form-control', 'maxlength' => '191', 'required' => 'required', 'placeholder' => trans('validation.attributes.frontend.group_decription')]) }}
                                         </div><!--col-md-6-->

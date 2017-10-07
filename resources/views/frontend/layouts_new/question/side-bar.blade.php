@@ -12,9 +12,9 @@
                     </p>
                     <div class="col-md-3 col-sm-12">
                         <div class="list-group table-of-contents">
-                            <a class="list-group-item" href="#buttons"><i style="color: #ef6733;" class="fa fa-globe"
+                            <a class="list-group-item" href="{{route('frontend.index')}}"><i style="color: #ef6733;" class="fa fa-globe"
                                                                           aria-hidden="true"></i> ALL Thread</a>
-                            <a class="list-group-item" href="#typography">
+                            <a class="list-group-item" href="{{route('popularthisweek')}}">
                                 <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i> Popular This week
                             </a>
                             @if(!Auth::guest())
@@ -26,14 +26,14 @@
                                     </i>My questions
                                 </a>
                             @endif
-                            <a class="list-group-item" href="#indicators">
-                                <i style="color: #ef6733;" class="fa fa-hand-o-right" aria-hidden="true"></i> Solved</a>
-                            <a class="list-group-item" href="#progress-bars">
-                                <i style="color: #ef6733;" class="fa fa-certificate" aria-hidden="true"></i> Unsolved</a>
-                            <a class="list-group-item" href="#containers">
-                                <i style="color: #ef6733;" class="fa fa-users" aria-hidden="true"></i> No Replies Yet</a>
-                            <a class="list-group-item" href="#dialogs">
-                                <i style="color: #ef6733;" class="fa">&#xf080;</i> Leaderborde</a>
+                            {{--<a class="list-group-item" href="#indicators">--}}
+                                {{--<i style="color: #ef6733;" class="fa fa-hand-o-right" aria-hidden="true"></i> Solved</a>--}}
+                            {{--<a class="list-group-item" href="#progress-bars">--}}
+                                {{--<i style="color: #ef6733;" class="fa fa-certificate" aria-hidden="true"></i> Unsolved</a>--}}
+                            {{--<a class="list-group-item" href="#containers">--}}
+                                {{--<i style="color: #ef6733;" class="fa fa-users" aria-hidden="true"></i> No Replies Yet</a>--}}
+                            {{--<a class="list-group-item" href="#dialogs">--}}
+                                {{--<i style="color: #ef6733;" class="fa">&#xf080;</i> Leaderborde</a>--}}
                         </div>
                         @if(!Auth::guest())
                             <span>@include('frontend.layouts_new.home_page.left-side')</span>

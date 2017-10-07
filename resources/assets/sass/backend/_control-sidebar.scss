@@ -29,7 +29,7 @@
   > .tab-content {
     padding: 10px 15px;
   }
-  //Open state with slide over content effect
+  //Open state with slide over content.blade.php effect
   &.control-sidebar-open {
     &,
     + .control-sidebar-bg {
@@ -37,7 +37,7 @@
     }
   }
 }
-//Open without slide over content
+//Open without slide over content.blade.php
 .control-sidebar-open {
   .control-sidebar-bg,
   .control-sidebar {
@@ -97,7 +97,7 @@
     }
   }
 }
-//Headings in the sidebar content
+//Headings in the sidebar content.blade.php
 .control-sidebar-heading {
   font-weight: 400;
   font-size: 16px;

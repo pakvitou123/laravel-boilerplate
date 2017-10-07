@@ -83,7 +83,7 @@ return [
                         'history'  => 'Geçmiş',
                     ],
 
-                    'content' => [
+                    'content.blade.php' => [
                         'overview' => [
                             'avatar'       => 'Avatar',
                             'confirmed'    => 'Onaylandı',

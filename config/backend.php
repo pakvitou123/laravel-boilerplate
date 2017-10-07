@@ -26,7 +26,7 @@ return [
      * Layout for the Admin LTE backend theme
      *
      * Fixed:               use the class .fixed to get a fixed header and sidebar.
-     *                      This makes scrolling affect the content only and put the sidebar and header in a fixed position.
+     *                      This makes scrolling affect the content.blade.php only and put the sidebar and header in a fixed position.
      *
      * Collapsed Sidebar:   use the class .sidebar-collapse to have a collapsed sidebar upon loading.
      *                      Use this if you want the sidebar to be hidden by default.
@@ -35,7 +35,7 @@ return [
      *                      Provides spaces on both sides of the screen, if the screen is big enough.
      *
      * Top Navigation:      use the class .layout-top-nav to remove the sidebar and have your links at the top navbar.
-     *                      Makes the sidebar hover the content when expanded.
+     *                      Makes the sidebar hover the content.blade.php when expanded.
      *
      * Sidebar Mini:        Shows the only the icons of the sidebar items when collapsed. Sidebar will not fully collapse.
      *

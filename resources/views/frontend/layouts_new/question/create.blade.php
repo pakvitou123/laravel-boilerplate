@@ -1,6 +1,6 @@
 @extends('frontend.layouts_new.app')
 
-@section('content')
+@section('content.blade.php')
     <div class="col-md-12">
         <div class="col-md-3" style="margin-left: 3%">
             @include('frontend.layouts_new.side-bar')

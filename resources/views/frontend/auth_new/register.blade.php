@@ -6,8 +6,6 @@
     <div class="container">
         <div class="page-header" id="banner" style="border-bottom:0px">
             <div class="row">
-            </div>
-            <div class="row">
                 <div class="main-content">
                     <div class="container-fluid">
                         <div class="row">

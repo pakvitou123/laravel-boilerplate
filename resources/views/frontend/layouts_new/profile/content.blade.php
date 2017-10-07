@@ -1,7 +1,7 @@
 @extends('frontend.layouts_new.app')
 
 @section('content')
-    <div class="col-md-9">
+    <div class="col-md-8" style="margin-left: 19%;margin-top: 5%;">
         <div class="row">
             <div class="main-content">
                 <div class="container-fluid">

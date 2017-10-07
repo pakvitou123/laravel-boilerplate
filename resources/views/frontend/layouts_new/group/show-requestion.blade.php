@@ -1,5 +1,5 @@
 @extends('frontend.layouts_new.app')
-@section('content')
+@section('content.blade.php')
     <div class="col-md-12">
         <div class="col-md-3">
             <div class="sidebar-bgcolor" style="height: 900px">

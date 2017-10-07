@@ -64,7 +64,7 @@
                     </div><!--loader-->
 
                     @include('includes.partials.messages')
-                    @yield('content')
+                    @yield('content.blade.php')
                 </section><!-- /.content -->
             </div><!-- /.content-wrapper -->
 

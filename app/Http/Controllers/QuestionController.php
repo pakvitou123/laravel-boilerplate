@@ -80,7 +80,11 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        $users = User::all();
+        $result_question =DB::table('questions')->orderBy('created_at', 'desc')->get();
+
+        return view('frontend.layouts_new.popular_thisweek.index', compact('users','result_question','result_group'));
+//        return view('frontend.layouts_new.popular_thisweek.popular-this-week');
     }
 
     /**

@@ -1,4 +1,4 @@
-@extends('frontend.layouts_new.app')
+@extends('frontend.layouts_new.group.index')
 @section('content')
     <div class="col-md-12">
         <div class="col-md-3">
@@ -14,10 +14,12 @@
                                 </p>
                                 <div class="col-md-3 col-sm-12">
                                     <div class="list-group table-of-contents">
+
                                         <a class="list-group-item" href="#"><i style="color: #ef6733;"
                                                                                class="fa fa-globe"
                                                                                aria-hidden="true"></i> Discussion</a>
-                                        <a class="list-group-item active" href="#">
+
+                                        <a class="list-group-item clickme" href="#">
                                             <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i>
                                             Members
                                         </a>
@@ -40,6 +42,8 @@
                                             <i style="color: #ef6733;" class="fa fa-certificate" aria-hidden="true"></i>
                                             Files
                                         </a>
+
+
                                     </div>
                                     @if(!Auth::guest())
                                         <span>@include('frontend.layouts_new.home_page.left-side')</span>
@@ -115,6 +119,20 @@
                         <div class="user-name">
                             <a href="#">Khem Veasna</a>
                         </div>
+                        <div style="position:absolute;margin-left: 50%">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1"
+                                    style="margin-left: -40px;font-weight: normal;line-height: 22px;" >
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make Admin</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make moderator</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove from group</a></li>
+                                    {{--<li role="presentation" class="divider"></li>--}}
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mute member</a></li>
+                                </ul>
+                            </div>
+                        </div>
                         <ul class="user-group">
                             <span>Member of </span>
                             <li class="user-group-name">
@@ -126,8 +144,8 @@
                         </ul>
                     </div>
                 </div>
-                {{--Group's Admin--}}
-                <div class="col-md-12">
+
+                <div class="col-md-12" >
                     <div class="col-md-3">
                         <img src="{{asset('img/profile/khem veasna1.jpg')}}"
                              alt="@default"
@@ -137,22 +155,39 @@
                                 background: #fff!important;
                                 margin-top: 25px;margin-left: -15px;">
                     </div>
-                    <div class="col-md-9 ">
+                    <div class="col-md-9 " style="position: relative">
                         <div class="user-name">
                             <a href="#">Khem Veasna</a>
                         </div>
+                        <div style="position:absolute;margin-left: 50%">
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
+                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1"
+                                    style="margin-left: -40px;font-weight: normal;line-height: 22px;" >
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make Admin</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make moderator</a></li>
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove from group</a></li>
+                                    {{--<li role="presentation" class="divider"></li>--}}
+                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mute member</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <ul class="user-group">
                             <span>Member of </span>
                             <li class="user-group-name">
                                 <a href="#">GIC Promotion 17th</a>
                             </li>
                             <li>
-                                <a href="#">Created group on September 8, 2017/a>
+                                <a href="#">Created group on September 8, 2017</a>
                             </li>
                         </ul>
                     </div>
                 </div>
+
             </div>
+
         </div>
     </div>
 
@@ -160,25 +195,9 @@
 @endsection
 
 @section('script')
-    <script type="text/javascript" src="js/jquery.min.1.9.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $("#notificationLink").click(function () {
-                $("#notificationContainer").fadeToggle(300);
-                $("#notification_count").fadeOut("slow");
-                return false;
-            });
 
-//Document Click hiding the popup
-            $(document).click(function () {
-                $("#notificationContainer").hide();
-            });
 
-//Popup on click
-            $("#notificationContainer").click(function () {
-                return false;
-            });
 
-        });
     </script>
 @endsection

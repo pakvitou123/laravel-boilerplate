@@ -30,11 +30,11 @@
                     <div class="modal-body">
                             <div class="form-group">
                                 <label for="recipient-name" class="form-control-label">Title:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="title">
+                                <input type="text" class="form-control" id="recipient-name" name="title" required>
                             </div>
                             <div class="form-group">
                                 <label for="message-text" class="form-control-label">Description:</label>
-                                <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description"></textarea>
+                                <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description" required></textarea>
                             </div>
                     </div>
                     <div class="modal-footer">
@@ -60,11 +60,11 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="recipient-name" class="form-control-label">Name</label>
-                            <input type="text" class="form-control" id="recipient-name" name="name">
+                            <input type="text" class="form-control" id="recipient-name" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="message-text" class="form-control-label">Description:</label>
-                            <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description"></textarea>
+                            <textarea class="form-control" id="message-text" style="margin-left: -1px;" name="description" required></textarea>
                         </div>
 
                         <div class="form-group">
@@ -86,6 +86,7 @@
     </div>{{--@end modal form--}}
 @endif
 <div class="question">
+
     @foreach($result_question as $result_questions)
         <div class="conversation-list">
             <div class="conversation-list-avatar col-md-2 ">

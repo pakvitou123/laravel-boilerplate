@@ -113,6 +113,7 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         $results = DB::table('groups')->where('id_user', \auth()->id())->get();
+
         return view('frontend.layouts_new.group.mygroup', compact('results'));
     }
 
@@ -170,6 +171,8 @@ class GroupController extends Controller
 //        return view('frontend.layouts_new.group.content', compact('group'));
     }
     public function listmembers(){
-        return view('frontend.layouts_new.group.list-members');
+        $results = DB::table('groups')->where('id_user', \auth()->id())->get();
+//        dd($results);
+        return view('frontend.layouts_new.group.list-members',compact('results'));
     }
 }

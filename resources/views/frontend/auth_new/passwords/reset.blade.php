@@ -2,7 +2,7 @@
 
 @section('title', app_name() . ' | Reset Password')
 
-@section('content')
+@section('content.blade.php')
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 

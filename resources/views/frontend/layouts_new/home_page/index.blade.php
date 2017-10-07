@@ -37,11 +37,6 @@
         ::-moz-selection {
             background: #a4dcec;
         }
-
-        ::-webkit-selection {
-            background: #a4dcec;
-        }
-
         ::-webkit-input-placeholder { /* WebKit browsers */
             color: #ccc;
             font-style: italic;
@@ -326,8 +321,11 @@
         </div>
     </div>
 @endsection
+
+
 @section('script')
     <script type="text/javascript">
+        //@Autocomplete Search
         $(function () {
             var title = [
                     @foreach($result_question as $result_questions)
@@ -343,50 +341,30 @@
                 {
                     lookup: title,
                     onSelect: function (suggestion) {
-//                        console.log('hello');
-                        $('#btn-search').trigger('click');
+                       //console.log('hello');
+                        $('#btn-search').trigger('click');// Enter then search
                     }
-                });
-
-
-            //@Notification
-            $(document).ready(function () {
-                $("#notificationLink").click(function () {
-                    $("#notificationContainer").fadeToggle(300);
-                    $("#notification_count").fadeOut("slow");
-                    return false;
-                });
-                //@Document Click hiding the popup
-                $(document).click(function () {
-                    $("#notificationContainer").hide();
-                });
-                //@Popup on click
-                $("#notificationContainer").click(function () {
-                    return false;
-                });
-            });
-
-            //@Scroll hieght
-            $(function () {
-                //  changes mouse cursor when highlighting loawer right of box
-                $(document).on('mousemove', 'textarea', function (e) {
-                    var a = $(this).offset().top + $(this).outerHeight() - 16,	//	top border of bottom-right-corner-box area
-                        b = $(this).offset().left + $(this).outerWidth() - 16;	//	left border of bottom-right-corner-box area
-                    $(this).css({
-                        cursor: e.pageY > a && e.pageX > b ? 'nw-resize' : ''
-                    });
-                })
-                // @ the following simple make the textbox "Auto-Expand" as it is typed in
-                    .on('keyup', 'textarea', function (e) {
-                        //  the following will help the text expand as typing takes place
-                        while ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
-                            $(this).height($(this).height() + 1);
-                        }
-                    })
-            });
+                });//@end #autocompleted
         });
 
-
+        //@ Start Scroll hieght-modal
+        $(function () {
+            //  changes mouse cursor when highlighting loawer right of box
+            $(document).on('mousemove', 'textarea', function (e) {
+                var a = $(this).offset().top + $(this).outerHeight() - 16,	//	top border of bottom-right-corner-box area
+                    b = $(this).offset().left + $(this).outerWidth() - 16;	//	left border of bottom-right-corner-box area
+                $(this).css({
+                    cursor: e.pageY > a && e.pageX > b ? 'nw-resize' : ''
+                });
+            })
+            // @ the following simple make the textbox "Auto-Expand" as it is typed in
+                .on('keyup', 'textarea', function (e) {
+                    //  the following will help the text expand as typing takes place
+                    while ($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
+                        $(this).height($(this).height() + 1);
+                    }
+                })
+        });//End scroll hight
     </script>
 @endsection
 

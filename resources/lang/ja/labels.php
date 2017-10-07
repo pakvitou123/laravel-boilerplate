@@ -81,7 +81,7 @@ return [
                         'history' => '履歴',
                     ],
 
-                    'content' => [
+                    'content.blade.php' => [
                         'overview' => [
                             'avatar' => 'Avatar',
                             'confirmed' => '確認済',

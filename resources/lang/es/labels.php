@@ -81,7 +81,7 @@ return [
                         'history'  => 'Historia',
                     ],
 
-                    'content' => [
+                    'content.blade.php' => [
                         'overview' => [
                             'avatar'       => 'Avatar',
                             'confirmed'    => 'Confirmado',

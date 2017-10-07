@@ -2,7 +2,7 @@
 
 @section('title', app_name() . ' | Login')
 
-@section('content')
+@section('content.blade.php')
 
     <div class="row">
 

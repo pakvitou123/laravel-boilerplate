@@ -2,7 +2,7 @@
 
 @section('title', app_name() . ' | Macros')
 
-@section('content')
+@section('content.blade.php')
     <div class="row">
 
         <div class="col-xs-12">

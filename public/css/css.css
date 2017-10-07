@@ -106,6 +106,7 @@ li>i {
     margin-top: 20px;
 }
 #navbar{
+
     background-color:#4267b2;
     border-bottom: 0px solid #ffffff;
     border-left: 0px solid #29487d;
@@ -439,9 +440,9 @@ a:hover#on-hover1{
     background-color: #f5f5f5;
     border: 1px solid #ddd;
     width: 689px ;
-    /*height:50%;*/
+    height:100%;
     overflow: hidden;
-    position: relative;
+    position: absolute;
     margin-top: 430px;
     margin-left: 60px;
 }
@@ -631,3 +632,50 @@ textarea { margin: 1em; outline: none; text-align: justify; }
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {display:block;}
+.clickme:visited
+{
+    background-color: #f1f1f1;
+}
+
+.is-title-group {
+    color: #4d545d;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-left: -65px;
+    margin-top:40px;
+    position: absolute;
+}
+.group-members
+{
+    color:#848d95;
+    font-size: 15px;
+    /*font: inherit;*/
+    vertical-align: baseline;
+    float: right;
+    margin-top: 40px;
+
+}
+.group-edit
+{
+    color:#848d95;
+    font-size: 15px;
+    /*font: inherit;*/
+    vertical-align: baseline;
+    float: right;
+    margin-top: 40px;
+    margin-right: -150px;
+
+}.group-delete
+ {
+     color:#848d95;
+     font-size: 15px;
+     /*font: inherit;*/
+     vertical-align: baseline;
+     float: right;
+     margin-top: 40px;
+     margin-right: -190px;
+
+ }
+
+

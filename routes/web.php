@@ -37,15 +37,13 @@ Route::group(['namespace' => 'Backend', 'prefix' => 'admin', 'as' => 'admin.', '
 
 Route::get('profile', 'GroupController@showedit')->name('profile');
 Route::post('profileupdate', 'GroupController@editprofile')->name('profileupdate');
-
+//Route::post('GroupQuestion/{')
 Route::get('group', 'GroupController@create')->name('group');
 Route::post('GroupCreate', 'GroupController@store')->name('GroupCreate');
 Route::get('mygroup', 'GroupController@show')->name('mygroup');
 Route::get('indexgroup/{id}', 'GroupController@index')->name('index');
 Route::get('showquestion/{id_group}', 'GroupController@showquestion')->name('showquestion');
 Route::post('questioncreate/{id_group}','GroupController@createquestion')->name('createquestion');
-//Route::post('GroupQuestion/{')
-
 // route question
 Route::get('question', 'QuestionController@create')->name('question');
 Route::post('QuestionCreate', 'QuestionController@store')->name('QuestionCreate');
@@ -56,16 +54,13 @@ Route::post('updatequestion/{id}', 'QuestionController@update')->name('updateque
 Route::get('deletequestion/{id}', 'QuestionController@destroy')->name('deletequestion');
 Route::get('like/{id}', 'QuestionController@like')->name('likequestion');
 Route::get('dislike/{id}', 'QuestionController@dislike')->name('dislikequestion');
-
 //search
 Route::any('search','searchController@search')->name('search');
-
 //answer
 Route::any('answer/{id}','AnswerController@store')->name('answer');
 //show-requestion
-
 Route::any('showRequest','NotificationController@show')->name('showRequest');
-
 //List-members
-
 Route::any('listmember','GroupController@listmembers')->name('listmember');
+//@Popular-this-weeks
+Route::any('popularthisweek','QuestionController@show')->name('popularthisweek');

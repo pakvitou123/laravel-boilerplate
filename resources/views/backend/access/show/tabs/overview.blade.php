@@ -1,6 +1,6 @@
 <table class="table table-striped table-hover">
     <tr>
-        <th>{{ trans('labels.backend.access.users.tabs.content.overview.avatar') }}</th>
+        <th>{{ trans('content.blade.php') }}</th>
         <td><img src="{{ $user->picture }}" class="user-profile-image" /></td>
     </tr>
 
@@ -15,7 +15,7 @@
     </tr>
 
     <tr>
-        <th>{{ trans('labels.backend.access.users.tabs.content.overview.status') }}</th>
+        <th>{{ trans('content.blade.php') }}</th>
         <td>{!! $user->status_label !!}</td>
     </tr>
 
@@ -30,7 +30,7 @@
     </tr>
 
     <tr>
-        <th>{{ trans('labels.backend.access.users.tabs.content.overview.last_updated') }}</th>
+        <th>{{ trans('content.blade.php') }}</th>
         <td>{{ $user->updated_at }} ({{ $user->updated_at->diffForHumans() }})</td>
     </tr>
 

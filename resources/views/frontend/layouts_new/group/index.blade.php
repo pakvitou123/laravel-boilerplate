@@ -15,6 +15,8 @@
 </head>
 <body>
 @include('frontend.layouts_new.nav-bar')
+{{--@include('frontend.layouts_new.group.content')--}}
+{{--@yield('side-bar')--}}
 @yield('content')
 </body>
 </html>
