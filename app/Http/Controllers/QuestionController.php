@@ -26,8 +26,8 @@ class QuestionController extends Controller
     {
 
         $question = Question::find($id);
-        $question->count_view = $question->count_view + 1; // increase count view + 1
-        $question->update();
+//        $question->count_view = $question->count_view + 1; // increase count view + 1
+//        $question->update();
         $user = User::find($question->id_user);
         $vote = VoteQuestion::whereRaw('id = ? and id_user = ?',[$id, auth()->id()])->get();
         $notification_nav_bars = Notification::where('id_user_passive', \auth()->id())->get();
@@ -159,7 +159,7 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+                return redirect()->route('indexquestion',$id);
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -169,7 +169,8 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 //                return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion]);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+//                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+                return redirect()->route('indexquestion',$id);
             }
         } else{
 
@@ -187,7 +188,8 @@ class QuestionController extends Controller
             $user = User::find($question->id_user);
 //            return Response::json(['status' => true, 'dislikes' => $question->like, 'likes' => $question->like, 'vote' => $votequestion->vote]);
 
-            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+//            return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+            return redirect()->route('indexquestion',$id);
         }
 
     }
@@ -215,7 +217,8 @@ class QuestionController extends Controller
                 $question->save();
 
                 $user = User::find($question->id_user);
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+//                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+                return redirect()->route('indexquestion',$id);
             } else{
                 $vote->getIterator()[0]->delete();
                 $votequestion = null;
@@ -226,7 +229,8 @@ class QuestionController extends Controller
 
                 $user = User::find($question->id_user);
 
-                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+//                return view('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+                return redirect()->route('indexquestion',$id);
             }
         } else{
 
@@ -243,8 +247,16 @@ class QuestionController extends Controller
 
             $user = User::find($question->id_user);
 
-            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+//            return view ('frontend.layouts_new.question.index', compact('question', 'user','votequestion', 'answer', 'notification_nav_bars'));
+            return redirect()->route('indexquestion',$id);
         }
 
+    }
+    public function increaseview($id_question){
+
+        $question = Question::find($id_question);
+        $question->count_view = $question->count_view + 1; // increase count view + 1
+        $question->update();
+        return Response::json(['status'=>true]);
     }
 }

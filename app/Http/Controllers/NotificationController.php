@@ -37,7 +37,7 @@ class NotificationController extends Controller
      */
     public function store($idgroup)
     {
-        $usergroup = User_Group::whereRaw('id_group = ? and priority = 1', [$idgroup])->get();
+        $usergroup = User_Group::whereRaw('id_group = ? and priority = 1', [$idgroup])->get(); // get admin group
         $usergroup = $usergroup->getIterator()[0];
 
         $notification = new Notification();

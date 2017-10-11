@@ -27,10 +27,12 @@ class CreateNotificationsTable extends Migration
                 ->onDelete('cascade');
             $table->foreign('id_user_passive')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->foreign('id_group')
                 ->references('id')
-                ->on('groups');
+                ->on('groups')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

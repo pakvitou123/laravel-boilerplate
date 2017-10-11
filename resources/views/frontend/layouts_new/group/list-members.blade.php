@@ -10,16 +10,14 @@
                             </div>
                             <div class="row" style="width: 88%;margin-left: 50px">
                                 <p class="menu-label">
-                                    GIC Promotion 17th
+                                    {{$group->name}}
                                 </p>
                                 <div class="col-md-3 col-sm-12">
                                     <div class="list-group table-of-contents">
-
-                                        <a class="list-group-item" href="#"><i style="color: #ef6733;"
-                                                                               class="fa fa-globe"
-                                                                               aria-hidden="true"></i> Discussion</a>
-
-                                        <a class="list-group-item clickme" href="#">
+                                        <a class="list-group-item" href="{{route('index',[$group->id])}}"><i style="color: #ef6733;"
+                                                                                                             class="fa fa-globe"
+                                                                                                             aria-hidden="true"></i> Discussion</a>
+                                        <a class="list-group-item active" href="#">
                                             <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i>
                                             Members
                                         </a>
@@ -42,8 +40,6 @@
                                             <i style="color: #ef6733;" class="fa fa-certificate" aria-hidden="true"></i>
                                             Files
                                         </a>
-
-
                                     </div>
                                     @if(!Auth::guest())
                                         <span>@include('frontend.layouts_new.home_page.left-side')</span>
@@ -71,28 +67,61 @@
                                         </div>
                                         <div class="panel-footer">
                                             <div class="btn-group">
-                                                <button type="button" class="btn btn-default dropdown-toggle"
-                                                        data-toggle="dropdown">Joined
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">Delete Group</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-default dropdown-toggle"
-                                                        data-toggle="dropdown">Setting
-                                                    <span class="caret"></span>
-                                                </button>
-                                                <a href="#">
-                                                    <button type="button" class="btn btn-default Add-friend">
-                                                        <i class="fa fa-rocket" aria-hidden="true">Ask Question</i>
-                                                    </button>
-                                                </a>
-                                                <ul class="dropdown-menu" role="menu">
-                                                    <li><a href="#">Add Member</a></li>
-                                                    <li><a href="#">Change Profile Group</a></li>
-                                                </ul>
+                                                @if($usergroup != null)
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">Setting
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <a href="{{route('showquestion',[$group->id])}}">
+                                                            <button type="button" class="btn btn-default Add-friend">
+                                                                <i class="fa fa-rocket" aria-hidden="true">Ask Question</i>
+                                                            </button>
+                                                        </a>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="#">Add Member</a></li>
+                                                            <li><a href="#">Change Profile Group</a></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    @if($usergroup->priority == 1)
+                                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">Joined
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="{{route('deletegroup', [$group->id])}}">Delete Group</a></li>
+                                                        </ul>
+                                                        <button type="button" class="btn btn-default Add-friend"
+                                                                data-toggle="modal" data-target="#myModal" style="background-color: #00acd6"><i class="fa fa-plus" aria-hidden="true" ></i> Add Member
+                                                        </button>
+                                                    @else
+                                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">Joined
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="{{route('leaveGroup', [$group->id])}}">Leave Group</a></li>
+                                                        </ul>
+                                                    @endif
+                                                @else
+                                                    @if($notification != null)
+                                                        <button type="button" class="btn btn-default dropdown-toggle"
+                                                                data-toggle="dropdown">Pandding
+                                                            <span class="caret"></span>
+                                                        </button>
+                                                        <ul class="dropdown-menu" role="menu">
+                                                            <li><a href="{{route('destroynotification', [$group->id])}}">Cancel Request</a></li>
+                                                        </ul>
+                                                    @else
+                                                        <a href="#">
+                                                            <button type="button" class="btn btn-default dropdown-toggle"
+                                                                    data-toggle="dropdown" onclick="window.location='{{route('createnotification',[$group->id])}}';">Join
+                                                            </button>
+                                                        </a>
+                                                    @endif
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
@@ -104,7 +133,63 @@
             </div>
             {{--Group's members--}}
 
-            <div class="profifle-user-join-group">
+            <div class="profifle-user-join-group" style="padding: 10px; width: 72%">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <img src="{{asset('img/profile/'.$admin->img)}}"
+                             alt="@default"
+                             class="img-responsive "
+                             style="border: 2px solid #f5f5f5;
+                                width: 60px;max-width: 100%;
+                                background: #fff!important;
+                                margin-top: 25px;margin-left: -15px;">
+                    </div>
+                    <div class="col-md-8 ">
+                        <div class="user-name">
+                            <a href="#">{{$admin->first_name}} {{$admin->last_name}}</a>
+                        </div>
+                        <ul class="user-group">
+                            <span>Admin of </span>
+                            <li class="user-group-name">
+                                <a href="#">{{$group->name}}</a>
+                            </li>
+                            <li>
+                                <a href="#">Added by La Yu on September 8, 2017</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                @foreach($members as $member)
+                    <div class="col-md-12">
+                        <div class="col-md-3">
+                            <img src="{{asset('img/profile/'.$member->img)}}"
+                                 alt="@default"
+                                 class="img-responsive "
+                                 style="border: 2px solid #f5f5f5;
+                                width: 60px;max-width: 100%;
+                                background: #fff!important;
+                                margin-top: 25px;margin-left: -15px;">
+                        </div>
+                        <div class="col-md-8 ">
+                            <div class="user-name">
+                                <a href="#">{{$member->first_name}} {{$member->last_name}}</a>
+                            </div>
+                            <ul class="user-group">
+                                <span>Member of </span>
+                                <li class="user-group-name">
+                                    <a href="#">{{$group->name}}</a>
+                                </li>
+                                <li>
+                                    <a href="#">Added by La Yu on September 8, 2017</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-1">
+                            <a href="{{route('removeMember', [$group->id , $member->id])}}"><button class="btn-primary">Remove</button></a>
+                        </div>
+                    </div>
+                @endforeach
+                {{--Group's Admin--}}
                 <div class="col-md-12">
                     <div class="col-md-3">
                         <img src="{{asset('img/profile/khem veasna1.jpg')}}"
@@ -119,61 +204,6 @@
                         <div class="user-name">
                             <a href="#">Khem Veasna</a>
                         </div>
-                        <div style="position:absolute;margin-left: 50%">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1"
-                                    style="margin-left: -40px;font-weight: normal;line-height: 22px;" >
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make Admin</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make moderator</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove from group</a></li>
-                                    {{--<li role="presentation" class="divider"></li>--}}
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mute member</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <ul class="user-group">
-                            <span>Member of </span>
-                            <li class="user-group-name">
-                                <a href="#">GIC Promotion 17th</a>
-                            </li>
-                            <li>
-                                <a href="#">Added by La Yu on September 8, 2017</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-md-12" >
-                    <div class="col-md-3">
-                        <img src="{{asset('img/profile/khem veasna1.jpg')}}"
-                             alt="@default"
-                             class="img-responsive "
-                             style="border: 2px solid #f5f5f5;
-                                width: 60px;max-width: 100%;
-                                background: #fff!important;
-                                margin-top: 25px;margin-left: -15px;">
-                    </div>
-                    <div class="col-md-9 " style="position: relative">
-                        <div class="user-name">
-                            <a href="#">Khem Veasna</a>
-                        </div>
-                        <div style="position:absolute;margin-left: 50%">
-                            <div class="dropdown">
-                                <button class="btn btn-default dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">
-                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1"
-                                    style="margin-left: -40px;font-weight: normal;line-height: 22px;" >
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make Admin</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Make moderator</a></li>
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Remove from group</a></li>
-                                    {{--<li role="presentation" class="divider"></li>--}}
-                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Mute member</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
                         <ul class="user-group">
                             <span>Member of </span>
                             <li class="user-group-name">
@@ -185,7 +215,33 @@
                         </ul>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                {{ Form::open(['route' => 'addmember', 'class' => 'form-horizontal']) }}
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Invite Someone</h4>
+                </div>
+                <div class="modal-body">
+                    {{ Form::hidden('id_group', $group->id,['class' => 'form-control',  'required' => 'required', 'autofocus' => 'autofocus']) }}
+                    <select class="js-example-templating" name="id_user" style="width: 100%">
+                        @foreach($users as $user)
+                            <option data-image="{{ $user->img }}" value="{{$user->id}}">{{$user->first_name}}{{$user->last_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    {{ Form::submit(trans('validation.attributes.frontend.add'), ['class' => 'btn btn-primary']) }}
+                </div>
+                {{ Form::close() }}
             </div>
 
         </div>
@@ -195,9 +251,25 @@
 @endsection
 
 @section('script')
+    <script type="text/javascript" src="js/jquery.min.1.9.js"></script>
     <script type="text/javascript">
+        $('select').select2();
+        $(document).ready(function() {
+            function formatState (state) {
+                console.log(state);
+                if (!state.id) {
+                    return state.text;
+                }
+                var baseUrl = "{{asset('img/profile')}}";
+                var $state = $(
+                    '<span><img style="width: 30px; height: 30px;" src="' + baseUrl + '/' + $(state.element).attr('data-image') + '" class="img-flag" /> ' + state.text + '</span>'
+                );
+                return $state;
+            };
 
-
-
+            $(".js-example-templating").select2({
+                templateResult: formatState
+            });
+        });
     </script>
 @endsection

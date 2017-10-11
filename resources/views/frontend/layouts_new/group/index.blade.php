@@ -7,23 +7,61 @@
     <link href="{{ asset('bootstrap/css/bootstrap.css')}}" rel="stylesheet">
     <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{ asset('css/css.css')}}" rel="stylesheet">
-    <script src="{{ asset('js/jquery.min.js')}}"></script>
-    <script src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
-
+    <link href="{{ asset('bower_components/select2/dist/css/select2.min.css')}}" rel="stylesheet" />
     @yield('header')
 
 </head>
 <body>
 @include('frontend.layouts_new.nav-bar')
 
-<div class="col-md-12">
-    <div class="col-md-3">
-        @include('frontend.layouts_new.side-bar')
-    </div>
-    <div class="col-md-9">@yield('content')</div>
-</div>
+    @yield('content')
 
-@yield('script')
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script src="{{ asset('bower_components/select2/dist/js/select2.min.js')}}"></script>
+    <script src="{{ asset('bootstrap/js/bootstrap.js')}}"></script>
+<script type="text/javascript" >
+    $(document).ready(function()
+    {
+        $("#notificationLink").click(function()
+        {
+            $("#notificationContainer").fadeToggle(300);
+            $("#notification_count").fadeOut("slow");
+            return false;
+        });
+
+//Document Click hiding the popup
+        $(document).click(function()
+        {
+            $("#notificationContainer").hide();
+        });
+
+//Popup on click
+        $("#notificationContainer").click(function()
+        {
+            return false;
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    // Close the dropdown menu if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn1')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+    @yield('script')
 
 </body>
 </html>

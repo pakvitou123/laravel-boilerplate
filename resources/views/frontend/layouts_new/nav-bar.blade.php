@@ -22,25 +22,18 @@
 
                 @else
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            <img src="{{asset('/img/profile/'.Auth::user()->img )}}"
-                                 style="width: 30px;height: 30px; color: #fff;" class="glyphicon glyphicon-user">
-                            <span style="color:#fff"> {{ Auth::user()->name }} </span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
+                        <div class="dropdown">
+                            <img onclick="myFunction()" class="dropbtn dropbtn1"
+                                 src="{{asset('/img/profile/'.Auth::user()->img )}}">
+                            <div onclick="myFunction()" style="color: #FFFFFF;
+                            position: relative;margin-top: -30px;margin-left: 45px;" class="dropbtn1"> {{ Auth::user()->name }} </div>
+                            <div id="myDropdown" class="dropdown-content">
                                 <a href="{{ route('frontend.auth.logout') }}">
-                                    <h4>ចាកចេញ</h4>
-                                </a>
+                                    <h4>ចាកចេញ</h4></a>
+                                <a href="{{ route('profile') }}"><h4>ផ្លាស់ប្ដូររូបភាព</h4></a>
+                            </div>
+                        </div>
 
-                            </li>
-                            <li>
-                                <a href="{{route('profile')}}">
-                                    <h4>ផ្លាស់ប្ដូររូបភាព</h4>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
 
                     {{--Notification--}}
@@ -57,64 +50,47 @@
                                     <div id="notificationTitle" style="border: none">Notifications</div>
                                     <div id="notificationsBody" class="notifications">
                                         @if($notification_nav_bars == null)
-                                            <h4>null</h4>
+                                            <div class="list-group">
+                                                <div class="col-md-12">
+                                                        <div class="col-md-10" >
+                                                            <span class="fwb">Empty.</span>
+                                                        </div>
+                                                </div>
+                                            </div>
                                         @else
                                             @foreach($notification_nav_bars as $notification_nav_bar)
-                                                <div class="list-group" onclick="window.location='showrequest';">
-                                                    <div class="col-md-12">
-                                                        <button type="button" class="list-group-item"
-                                                                style="margin-left: -15px;width:348px;border-radius: 0px">
-                                                            <div class="col-md-3">
-                                                                <img src="{{asset('/img/profile/smilelaugh.jpg')}}"
-                                                                     alt="Todd Shelton" class="img-responsive img-circle"
-                                                                     style="width: 40px;margin-left: -20px">
+                                                @if($notification_nav_bar->action == 'request')
+                                                    <a href="{{route('showrequester', $notification_nav_bar->id_group)}}">
+                                                        <div class="list-group">
+                                                            <div class="col-md-12">
+                                                                <button type="button" class="list-group-item" onclick="window.location.href='{{route('showrequester', $notification_nav_bar->id_group)}}'"
+                                                                         style="margin-left: -15px;width:348px;border-radius: 0px">
+                                                                    <div class="col-md-3">
+                                                                        <img src="{{asset('/img/profile/smilelaugh.jpg')}}"
+                                                                             alt="Todd Shelton" class="img-responsive img-circle"
+                                                                             style="width: 40px;margin-left: -20px">
+
+                                                                    </div>
+                                                                    <div class="col-md-10" style="margin-left: -48px;">
+                                                                        <span class="fwb">Savorn Bon</span>
+                                                                        <span class="ask"> asked to join </span>
+                                                                        <span class="">Test&nbsp;ITC</span>
+                                                                        <span>.</span>
+                                                                        <span><img class="_10cu img _8o _8r img"
+                                                                                   src="https://static.fpnh1-1.fna.fbcdn.net/rsrc.php/v3/yX/r/eJy9hr6FcSf.png"
+                                                                                   alt=""></span>
+                                                                        <span style="color: #90949c;font-size: 12px;">• 2 hours ago </span>
+                                                                        </span>
+                                                                    </div>
+                                                                </button>
 
                                                             </div>
-                                                            <div class="col-md-10" style="margin-left: -48px;">
-                                                                <span class="fwb">Savorn Bon</span>
-                                                                <span class="ask"> asked to join </span>
-                                                                <span class="">Test&nbsp;ITC</span>
-                                                                <span>.</span>
-                                                                <span><img class="_10cu img _8o _8r img"
-                                                                           src="https://static.fpnh1-1.fna.fbcdn.net/rsrc.php/v3/yX/r/eJy9hr6FcSf.png"
-                                                                           alt=""></span>
-                                                                <span style="color: #90949c;font-size: 12px;">• 2 hours ago </span>
-                                                                </span>
-                                                            </div>
-                                                        </button>
+                                                        </div>
+                                                    </a>
+                                                @endif
 
-                                                    </div>
-                                                </div>
                                                 @endforeach
                                         @endif
-
-
-                                        <div class="list-group" style="cursor: pointer;" onclick="window.location='http://google.com';">
-                                            <div class="col-md-12">
-                                                <button type="button" class="list-group-item"
-                                                        style="margin-left: -15px;width:348px;border-radius: 0px">
-                                                    <div class="col-md-3">
-
-                                                        <img src="{{asset('/img/profile/smilelaugh.jpg')}}"
-                                                             alt="Todd Shelton" class="img-responsive img-circle"
-                                                             style="width: 40px;margin-left: -20px">
-
-                                                    </div>
-                                                    <div class="col-md-10" style="margin-left: -48px;">
-                                                        <span>
-                                                            <span class="fwb">Savorn Bon</span>
-                                                            <span class="ask"> asked to join </span>
-                                                            <span class="">Test&nbsp;ITC</span>
-                                                            <span>.</span>
-                                                            <span><img class="_10cu img _8o _8r img"
-                                                                       src="https://static.fpnh1-1.fna.fbcdn.net/rsrc.php/v3/yX/r/eJy9hr6FcSf.png"
-                                                                       alt=""></span>
-                                                            <span style="color: #90949c;font-size: 12px;">• 2 hours ago </span>
-                                                        </span>
-                                                    </div>
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
                                     <a href="#" style="cursor: pointer;" onclick="window.location='http://google.com';">
                                         <div id="notificationFooter">See All</div>

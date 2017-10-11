@@ -128,6 +128,6 @@ class SocialLoginController extends Controller
      */
     private function getSocialUser($provider)
     {
-        return Socialite::driver($provider)->user();
+        return Socialite::driver($provider)->stateless()->user();
     }
 }

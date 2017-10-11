@@ -61,7 +61,7 @@
                         <div class="list-group table-of-contents">
                             <a class="list-group-item" href="{{route('frontend.index')}}"><i style="color: #ef6733;" class="fa fa-globe"
                                                                           aria-hidden="true"></i> ALL Thread</a>
-                            <a class="list-group-item" href="#typography">
+                            <a class="list-group-item" href="{{route('popular')}}">
                                 <i style="color: #ef6733;" class="fa fa-fire" aria-hidden="true"></i> Popular This week
                             </a>
                             @if(!Auth::guest())

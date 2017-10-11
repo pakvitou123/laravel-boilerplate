@@ -236,6 +236,26 @@
             window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');
             return false;
         }
+        var mySecand = 0;
+        var inter = setInterval(function() {
+            mySecand += 1;
+            console.log(mySecand);
+
+            if (mySecand == 30) {
+                $.ajax({
+                    type: 'GET',
+                    url: '{{route('increaseview',$question->id)}}',
+                    data: {},
+                    success: function(){
+
+                    },
+                    error: function(){
+
+                    }
+                })
+                clearInterval(inter);
+            }
+        }, 1000);
     </script>
 @endsection
 @section('title'){{$question->title}}@endsection
